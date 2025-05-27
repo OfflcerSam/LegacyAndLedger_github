@@ -173,7 +173,7 @@
 		"LOW":{
 			"SAIC":15,
 			"SAIM":5,
-			"soldier"10,
+			"soldier":10,
 			"scientist":5,
 		},
 		"MEDIUM":{
