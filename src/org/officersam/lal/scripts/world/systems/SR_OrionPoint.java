@@ -43,7 +43,7 @@ public class SR_OrionPoint {
     final float monitoringDist = 19500f;
     //jumps
     final float jumpInnerDist = 4050f;
-    final float jumpOuterDist = 10850;
+    final float jumpOuterDist = 10850f;
     final float jumpFringeDist = 23500f;
 
 
@@ -63,7 +63,7 @@ public class SR_OrionPoint {
                 "inner_jump",
                 "Inner System Jump");
 
-        jumpPoint_inner.setCircularOrbit(system.getEntityById("s_OrionPoint"), 360 * (float) Math.random(), jumpInnerDist, 4000f);
+        jumpPoint_inner.setCircularOrbit(system.getEntityById("s_OrionPoint"), 360 * (float) Math.random(), jumpInnerDist, 2000f);
         jumpPoint_inner.setStandardWormholeToHyperspaceVisual();
 
         system.addEntity(jumpPoint_inner);
@@ -73,7 +73,7 @@ public class SR_OrionPoint {
                 "outer_jump",
                 "Outer System Jump");
 
-        jumpPoint_outer.setCircularOrbit(system.getEntityById("s_OrionPoint"), 360 * (float) Math.random(), jumpOuterDist, 2000f);
+        jumpPoint_outer.setCircularOrbit(system.getEntityById("s_OrionPoint"), 360 * (float) Math.random(), jumpOuterDist, 4000f);
         jumpPoint_outer.setStandardWormholeToHyperspaceVisual();
 
         system.addEntity(jumpPoint_outer);
@@ -104,13 +104,13 @@ public class SR_OrionPoint {
         addDerelict(system, sampstonAF1, "lasher_PD", ShipRecoverySpecial.ShipCondition.BATTERED, 125f, (Math.random() < 0.6));
 
         //asteroid belt1 ring
-        system.addAsteroidBelt(orionStar, 1000, asteroidBelt1Dist, 800, 250, 400, Terrain.ASTEROID_BELT, "Inner Band");
+        system.addAsteroidBelt(orionStar, 1000, asteroidBelt1Dist, 800, 250, 450, Terrain.ASTEROID_BELT, "Inner Band");
         system.addRingBand(orionStar, "misc", "rings_asteroids0", 256f, 3, Color.gray, 256f, asteroidBelt1Dist - 200, 250f);
         system.addRingBand(orionStar, "misc", "rings_asteroids0", 256f, 0, Color.gray, 256f, asteroidBelt1Dist, 350f);
         system.addRingBand(orionStar, "misc", "rings_asteroids0", 256f, 2, Color.gray, 256f, asteroidBelt1Dist + 200, 400f);
 
         //asteroid belt2 ring
-        system.addAsteroidBelt(orionStar, 1000, asteroidBelt2Dist, 800, 250, 400, Terrain.ASTEROID_BELT, "Outer Band");
+        system.addAsteroidBelt(orionStar, 1000, asteroidBelt2Dist, 800, 350, 600, Terrain.ASTEROID_BELT, "Outer Band");
         system.addRingBand(orionStar, "misc", "rings_asteroids0", 256f, 3, Color.gray, 256f, asteroidBelt2Dist - 200, 250f);
         system.addRingBand(orionStar, "misc", "rings_asteroids0", 256f, 0, Color.gray, 256f, asteroidBelt2Dist, 350f);
         system.addRingBand(orionStar, "misc", "rings_asteroids0", 256f, 1, Color.gray, 256f, asteroidBelt2Dist + 200, 400f);
@@ -140,12 +140,12 @@ public class SR_OrionPoint {
         PlanetConditionGenerator.generateConditionsForPlanet(gas, StarAge.OLD);
 
         //Gas Moon Barren
-        PlanetAPI gasmoon1 = system.addPlanet("s_gasmoon1", gas, "Origon Barren Moon", "barren3", 360f * (float) Math.random(), 98f, 620f, 15f);
+        PlanetAPI gasmoon1 = system.addPlanet("s_gasmoon1", gas, "Origon Barren Moon", "barren3", 360f * (float) Math.random(), 98f, 820f, 26f);
         //gas.setCustomDescriptionId("sr_orion_gasgiant"); //reference descriptions.csv
         PlanetConditionGenerator.generateConditionsForPlanet(gasmoon1, StarAge.OLD);
 
         //Gas Moon Ice
-        PlanetAPI gasmoon2 = system.addPlanet("s_gasmoon2", gas, "Origon Ice Moon", "rocky_ice", 360f * (float) Math.random(), 95f, 515f, 2f);
+        PlanetAPI gasmoon2 = system.addPlanet("s_gasmoon2", gas, "Origon Ice Moon", "rocky_ice", 360f * (float) Math.random(), 90f, 525f, 5f);
         //gas.setCustomDescriptionId("sr_orion_gasgiant"); //reference descriptions.csv
         PlanetConditionGenerator.generateConditionsForPlanet(gasmoon2, StarAge.OLD);
 
@@ -155,8 +155,8 @@ public class SR_OrionPoint {
         Misc.setDefenderOverride(scrap1, new DefenderDataOverride(Factions.DERELICT, 0, 0, 0));
         scrap1.setDiscoverable(Boolean.TRUE);
 
-        // Arid
-        PlanetAPI arid1 = system.addPlanet("s_arid1", orionStar, "Tatoco", "arid", 360f * (float) Math.random(), 220f, arid1Dist, 380f);
+        // Tatoco
+        PlanetAPI arid1 = system.addPlanet("s_arid1", orionStar, "Tatoco", "arid", 360f * (float) Math.random(), 200f, arid1Dist, 380f);
        // arid1.setCustomDescriptionId("sr"); //reference descriptions.csv
         PlanetConditionGenerator.generateConditionsForPlanet(arid1, StarAge.OLD);
 
@@ -169,14 +169,14 @@ public class SR_OrionPoint {
         PlanetAPI central;
         central = system.addPlanet("sr_central",
                 orionStar,
-                "Orion Point Central",
+                "Orion Point Alpha",
                 "tundra",
                 360f * (float) Math.random(),
-                220f,
+                195f,
                 centralDist,
-                380f);
+                390f);
 
-        central.setCustomDescriptionId("sr_orion_central"); //reference descriptions.csv
+        central.setCustomDescriptionId("sr_orionpoint_central"); //reference descriptions.csv
 
         MarketAPI central_market = addMarketplace("SR", central, null,
                 "Orion Point Alpha",
@@ -251,7 +251,7 @@ public class SR_OrionPoint {
                 360f * (float) Math.random(),
                 220f,
                 betaDist,
-                360f);
+                350f);
 
         beta.setCustomDescriptionId("sr_orionpoint_beta"); //reference descriptions.csv
 
