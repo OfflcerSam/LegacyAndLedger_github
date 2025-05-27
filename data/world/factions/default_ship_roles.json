@@ -2,14 +2,15 @@
 	# should be a copy of "combatSmall", minus standards that are annoying to fight in low numbers
 	# for example, no Hyperions or fast beam-based kiting loadouts, or ships with damper field
 	"combatSmallForSmallFleet":{
-			"et_contractor_pursuit":20,
-			"sr_afp245_patrol":20,
+			
 	},
 	"combatSmall":{
-
+			"et_contractor_pursuit":20,
+			"sr_afp245_patrol":20,
+			"et_resolver_heavy":10,
 	},
 	"combatMedium":{
-
+		
 			
 	},
 	"combatLarge":{
@@ -23,7 +24,7 @@
 	
 	# hybrid ships with good combat and cargo capacity
 	"combatFreighterSmall":{
-			"et_resolver_heavy":10,
+			
 	},
 	"combatFreighterMedium":{
 

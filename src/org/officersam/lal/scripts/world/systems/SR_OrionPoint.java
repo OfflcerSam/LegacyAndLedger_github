@@ -25,25 +25,26 @@ import static org.officersam.lal.scripts.world.systems.lal_addmarket.addMarketpl
 public class SR_OrionPoint {
     // Star Orbits
     //asteroids
-    final float asteroids1Dist = 8500f;
-    final float stable1Dist = 8100f;
-    final float asteroidBelt1Dist = 3350f;
-    final float asteroidBelt2Dist = 12000f;
+    final float asteroids1Dist = 9500f;
+    final float asteroidBelt1Dist = 3450f;
+    final float asteroidBelt2Dist = 15500f;
     //relays
+    final float stable1Dist = 11500f;
     final float buoy1Dist = 4550f;
-    final float relay1Dist = 6650f;
-    final float sensor1Dist = 11050f;
+    final float relay1Dist = 8250f;
+    final float sensor1Dist = 14900f;
     //planets
-    final float desert1Dist = 2900f;
-    final float arid1Dist = 4200f;
-    final float betaDist = 5500f;
-    final float centralDist = 7500f;
-    final float gasDist = 9500f;
-    final float monitoringDist = 12000f;
+    final float lava1Dist = 2950f;
+    final float arid1Dist = 5350f;
+    final float betaDist = 7600f;
+    final float charlieDist = 9750f;
+    final float centralDist = 11550f;
+    final float gasDist = 14050f;
+    final float monitoringDist = 15500f;
     //jumps
-    final float jumpInnerDist = 3050f;
-    final float jumpOuterDist = 9300;
-    final float jumpFringeDist = 16700f;
+    final float jumpInnerDist = 3250f;
+    final float jumpOuterDist = 9850;
+    final float jumpFringeDist = 18000f;
 
 
     public void generate(SectorAPI sector) {
@@ -134,7 +135,7 @@ public class SR_OrionPoint {
         orionStar_sensor.setCircularOrbitPointingDown(orionStar, MathUtils.getRandomNumberInRange(0f, 360f), sensor1Dist, 520);
 
         // Gas Giant
-        PlanetAPI gas = system.addPlanet("s_gas", orionStar, "gas", "gas_giant", 360f * (float) Math.random(), 400f, gasDist, 380f);
+        PlanetAPI gas = system.addPlanet("s_gas", orionStar, "Origon Giant", "gas_giant", 360f * (float) Math.random(), 400f, gasDist, 380f);
         //gas.setCustomDescriptionId("sr_orion_gasgiant"); //reference descriptions.csv
         PlanetConditionGenerator.generateConditionsForPlanet(gas, StarAge.OLD);
 
@@ -145,14 +146,14 @@ public class SR_OrionPoint {
         scrap1.setDiscoverable(Boolean.TRUE);
 
         // Arid
-        PlanetAPI arid1 = system.addPlanet("s_arid1", orionStar, "Arid", "arid", 360f * (float) Math.random(), 210f, arid1Dist, 380f);
+        PlanetAPI arid1 = system.addPlanet("s_arid1", orionStar, "Tatoco", "arid", 360f * (float) Math.random(), 210f, arid1Dist, 380f);
        // arid1.setCustomDescriptionId("sr"); //reference descriptions.csv
         PlanetConditionGenerator.generateConditionsForPlanet(arid1, StarAge.OLD);
 
-        // Desert
-        PlanetAPI desert1 = system.addPlanet("s_desert1", orionStar, "Desert", "desert", 360f * (float) Math.random(), 130f, desert1Dist, 200f);
+        // Scorned
+        PlanetAPI lava1 = system.addPlanet("s_lava1", orionStar, "Scorned", "lava", 360f * (float) Math.random(), 130f, lava1Dist, 200f);
        // vengus.setCustomDescriptionId("sr"); //reference descriptions.csv
-        PlanetConditionGenerator.generateConditionsForPlanet(desert1, StarAge.OLD);
+        PlanetConditionGenerator.generateConditionsForPlanet(lava1, StarAge.OLD);
 
         // Orion Point Central
         PlanetAPI central;
@@ -168,20 +169,21 @@ public class SR_OrionPoint {
         central.setCustomDescriptionId("sr_orion_central"); //reference descriptions.csv
 
         MarketAPI central_market = addMarketplace("SR", central, null,
-                "Orion Point Central",
-                7,
+                "Orion Point Alpha",
+                5,
                 Arrays.asList(
-                        Conditions.POPULATION_7,
+                        Conditions.POPULATION_5,
+                        Conditions.AI_CORE_ADMIN,
                         Conditions.INDUSTRIAL_POLITY,
-                        Conditions.ORE_ULTRARICH,
-                        Conditions.RARE_ORE_RICH,
+
                         Conditions.COLD,
                         Conditions.HABITABLE,
                         Conditions.RUINS_SCATTERED,
-                        Conditions.REGIONAL_CAPITAL,
-                        Conditions.VOLATILES_ABUNDANT,
-                        Conditions.STEALTH_MINEFIELDS,
-                        Conditions.AI_CORE_ADMIN
+
+                        Conditions.ORE_MODERATE,
+                        Conditions.RARE_ORE_MODERATE,
+
+                        Conditions.STEALTH_MINEFIELDS
                 ),
                 Arrays.asList(
                         Submarkets.GENERIC_MILITARY,
@@ -191,31 +193,38 @@ public class SR_OrionPoint {
                 ),
                 Arrays.asList(
                         Industries.POPULATION,
-                        Industries.MEGAPORT,
+                        Industries.SPACEPORT,
+                        Industries.WAYSTATION,
+
                         Industries.MINING,
-                        Industries.STARFORTRESS_HIGH,
-                        Industries.HEAVYBATTERIES,
                         Industries.HEAVYINDUSTRY,
                         Industries.LIGHTINDUSTRY,
-                        Industries.HIGHCOMMAND,
-                        Industries.FARMING,
-                        Industries.WAYSTATION
+                       // Industries.REFINING,
+
+                        Industries.STARFORTRESS_HIGH,
+                        Industries.HEAVYBATTERIES,
+                        Industries.PATROLHQ
+                        //Industries.FARMING,
                 ),
                 0.19f,
                 false,
                 true);
 
+        central_market.getIndustry(Industries.POPULATION).setAICoreId(Commodities.ALPHA_CORE);
+        central_market.getIndustry(Industries.SPACEPORT).setAICoreId(Commodities.ALPHA_CORE);
+        central_market.getIndustry(Industries.WAYSTATION).setAICoreId(Commodities.ALPHA_CORE);
+
+        central_market.getIndustry(Industries.PATROLHQ).setAICoreId(Commodities.ALPHA_CORE);
+        central_market.getIndustry(Industries.HEAVYBATTERIES).setAICoreId(Commodities.ALPHA_CORE);
+        central_market.getIndustry(Industries.STARFORTRESS_HIGH).setAICoreId(Commodities.ALPHA_CORE);
+
         central_market.addIndustry(Industries.ORBITALWORKS, Collections.singletonList(Items.PRISTINE_NANOFORGE));
         central_market.getIndustry(Industries.ORBITALWORKS).setAICoreId(Commodities.ALPHA_CORE);
-        central_market.getIndustry(Industries.POPULATION).setAICoreId(Commodities.ALPHA_CORE);
-        central_market.getIndustry(Industries.MEGAPORT).setAICoreId(Commodities.ALPHA_CORE);
         central_market.getIndustry(Industries.MINING).setAICoreId(Commodities.ALPHA_CORE);
-        central_market.getIndustry(Industries.STARFORTRESS_HIGH).setAICoreId(Commodities.ALPHA_CORE);
         central_market.getIndustry(Industries.HEAVYINDUSTRY).setAICoreId(Commodities.ALPHA_CORE);
         central_market.getIndustry(Industries.LIGHTINDUSTRY).setAICoreId(Commodities.ALPHA_CORE);
-        central_market.getIndustry(Industries.HIGHCOMMAND).setAICoreId(Commodities.ALPHA_CORE);
-        central_market.getIndustry(Industries.FARMING).setAICoreId(Commodities.ALPHA_CORE);
-        central_market.getIndustry(Industries.WAYSTATION).setAICoreId(Commodities.ALPHA_CORE);
+        //central_market.getIndustry(Industries.REFINING).setAICoreId(Commodities.ALPHA_CORE);
+        //central_market.getIndustry(Industries.FARMING).setAICoreId(Commodities.ALPHA_CORE);
 
 
         addDerelict(system, central, "wolf_d_pirates_Attack", ShipRecoverySpecial.ShipCondition.BATTERED, 240f, (Math.random() < 0.6));
@@ -238,17 +247,88 @@ public class SR_OrionPoint {
 
         MarketAPI beta_market = addMarketplace("SR", beta, null,
                 "Orion Point Beta",
-                5,
+                6,
                 Arrays.asList(
-                        Conditions.POPULATION_5,
-                        Conditions.ORE_RICH,
-                        Conditions.WATER,
+                        Conditions.POPULATION_6,
+                        Conditions.WATER_SURFACE,
+                        Conditions.HABITABLE,
+                        Conditions.AI_CORE_ADMIN,
+
                         Conditions.INDUSTRIAL_POLITY,
-                        Conditions.RARE_ORE_RICH,
+                        Conditions.ORE_ULTRARICH,
+                        Conditions.RARE_ORE_MODERATE,
                         Conditions.VOLATILES_PLENTIFUL,
                         Conditions.VOLTURNIAN_LOBSTER_PENS,
+
+                        Conditions.STEALTH_MINEFIELDS
+                ),
+                Arrays.asList(
+                        Submarkets.GENERIC_MILITARY,
+                        Submarkets.SUBMARKET_OPEN,
+                        Submarkets.SUBMARKET_STORAGE,
+                        Submarkets.SUBMARKET_BLACK
+                ),
+                Arrays.asList(
+                        Industries.POPULATION,
+                        Industries.SPACEPORT,
+                        Industries.WAYSTATION,
+
+                        Industries.MINING,
+                        Industries.REFINING,
+                        //Industries.HEAVYINDUSTRY,
+                        Industries.AQUACULTURE,
+                        Industries.FUELPROD,
+
+                        Industries.PATROLHQ,
+                        Industries.STARFORTRESS_HIGH,
+                        Industries.HEAVYBATTERIES
+                ),
+                0.18f,
+                false,
+                true);
+
+        beta_market.getIndustry(Industries.POPULATION).setAICoreId(Commodities.ALPHA_CORE);
+        beta_market.getIndustry(Industries.SPACEPORT).setAICoreId(Commodities.ALPHA_CORE);
+        beta_market.getIndustry(Industries.WAYSTATION).setAICoreId(Commodities.ALPHA_CORE);
+
+        beta_market.getIndustry(Industries.PATROLHQ).setAICoreId(Commodities.ALPHA_CORE);
+        beta_market.getIndustry(Industries.STARFORTRESS_HIGH).setAICoreId(Commodities.ALPHA_CORE);
+        beta_market.getIndustry(Industries.HEAVYBATTERIES).setAICoreId(Commodities.ALPHA_CORE);
+
+        beta_market.getIndustry(Industries.MINING).setAICoreId(Commodities.ALPHA_CORE);
+        beta_market.getIndustry(Industries.REFINING).setAICoreId(Commodities.ALPHA_CORE);
+        //beta_market.getIndustry(Industries.HEAVYINDUSTRY).setAICoreId(Commodities.ALPHA_CORE);
+        beta_market.getIndustry(Industries.AQUACULTURE).setAICoreId(Commodities.ALPHA_CORE);
+        beta_market.getIndustry(Industries.FUELPROD).setAICoreId(Commodities.ALPHA_CORE);
+
+
+
+        // Orion Point Charlie
+        PlanetAPI charlie;
+        charlie = system.addPlanet("sr_charlie",
+                orionStar,
+                "Orion Point Charlie",
+                "terran",
+                360f * (float) Math.random(),
+                220f,
+                charlieDist,
+                365);
+
+        charlie.setCustomDescriptionId("sr_orionpoint_charlie"); //reference descriptions.csv
+
+        MarketAPI charlie_market = addMarketplace("SR", charlie, null,
+                "Orion Point Charlie",
+                8,
+                Arrays.asList(
+                        Conditions.POPULATION_8,
+                        Conditions.ORE_MODERATE,
+                        Conditions.TERRAN,
+                        Conditions.URBANIZED_POLITY,
+                        //Conditions.RARE_ORE_SPARSE,
+                        Conditions.VOLATILES_TRACE,
                         Conditions.HABITABLE,
                         Conditions.STEALTH_MINEFIELDS,
+                        Conditions.REGIONAL_CAPITAL,
                         Conditions.AI_CORE_ADMIN
                 ),
                 Arrays.asList(
@@ -260,29 +340,30 @@ public class SR_OrionPoint {
                 Arrays.asList(
                         Industries.POPULATION,
                         Industries.MEGAPORT,
+                        Industries.WAYSTATION,
+                        Industries.COMMERCE,
+                        //Industries.REFINING,
                         Industries.MINING,
-                        Industries.REFINING,
-                        Industries.HEAVYINDUSTRY,
-                        Industries.AQUACULTURE,
-                        Industries.FUELPROD,
+                        Industries.LIGHTINDUSTRY,
+
                         Industries.STARFORTRESS_HIGH,
                         Industries.HEAVYBATTERIES,
-                        Industries.HIGHCOMMAND,
-                        Industries.WAYSTATION
+                        Industries.HIGHCOMMAND
                 ),
-                0.18f,
+                0.17f,
                 false,
                 true);
 
+        charlie_market.getIndustry(Industries.POPULATION).setAICoreId(Commodities.ALPHA_CORE);
+        charlie_market.getIndustry(Industries.MEGAPORT).setAICoreId(Commodities.ALPHA_CORE);
+        charlie_market.getIndustry(Industries.WAYSTATION).setAICoreId(Commodities.ALPHA_CORE);
+        charlie_market.getIndustry(Industries.COMMERCE).setAICoreId(Commodities.ALPHA_CORE);
 
-        beta_market.getIndustry(Industries.HIGHCOMMAND).setAICoreId(Commodities.ALPHA_CORE);
-        beta_market.getIndustry(Industries.STARFORTRESS_HIGH).setAICoreId(Commodities.ALPHA_CORE);
-        beta_market.getIndustry(Industries.MEGAPORT).setAICoreId(Commodities.ALPHA_CORE);
-        beta_market.getIndustry(Industries.HEAVYINDUSTRY).setAICoreId(Commodities.ALPHA_CORE);
-        beta_market.getIndustry(Industries.MINING).setAICoreId(Commodities.ALPHA_CORE);
-        beta_market.getIndustry(Industries.FUELPROD).setAICoreId(Commodities.ALPHA_CORE);
-        beta_market.getIndustry(Industries.POPULATION).setAICoreId(Commodities.ALPHA_CORE);
-        beta_market.getIndustry(Industries.WAYSTATION).setAICoreId(Commodities.ALPHA_CORE);
+        charlie_market.getIndustry(Industries.MINING).setAICoreId(Commodities.ALPHA_CORE);
+        charlie_market.getIndustry(Industries.LIGHTINDUSTRY).setAICoreId(Commodities.ALPHA_CORE);
+        charlie_market.getIndustry(Industries.STARFORTRESS_HIGH).setAICoreId(Commodities.ALPHA_CORE);
+        charlie_market.getIndustry(Industries.HIGHCOMMAND).setAICoreId(Commodities.ALPHA_CORE);
+        charlie_market.getIndustry(Industries.HEAVYBATTERIES).setAICoreId(Commodities.ALPHA_CORE);
 
         // Orion Point Monitoring Station
         SectorEntityToken monitoring = system.addCustomEntity("sr_monitoring", "Orion Point Monitoring Station", "station_hightech2", "SR");
@@ -305,11 +386,12 @@ public class SR_OrionPoint {
                 Arrays.asList(
                         Industries.POPULATION,
                         Industries.SPACEPORT,
+                        Industries.WAYSTATION,
+
                         Industries.BATTLESTATION_HIGH,
                         Industries.HEAVYBATTERIES,
                         Industries.MILITARYBASE,
-                        Industries.ORBITALWORKS,
-                        Industries.WAYSTATION
+                        Industries.ORBITALWORKS
                 ),
                 0.20f,
                 false,
@@ -317,10 +399,11 @@ public class SR_OrionPoint {
 
         monitoring_market.getIndustry(Industries.POPULATION).setAICoreId(Commodities.ALPHA_CORE);
         monitoring_market.getIndustry(Industries.SPACEPORT).setAICoreId(Commodities.ALPHA_CORE);
+        monitoring_market.getIndustry(Industries.WAYSTATION).setAICoreId(Commodities.ALPHA_CORE);
+
         monitoring_market.getIndustry(Industries.BATTLESTATION_HIGH).setAICoreId(Commodities.ALPHA_CORE);
         monitoring_market.getIndustry(Industries.HEAVYBATTERIES).setAICoreId(Commodities.ALPHA_CORE);
         monitoring_market.getIndustry(Industries.ORBITALWORKS).setAICoreId(Commodities.ALPHA_CORE);
-        monitoring_market.getIndustry(Industries.WAYSTATION).setAICoreId(Commodities.ALPHA_CORE);
 
         addDerelict(system, monitoring, "wolf_d_pirates_Attack", ShipRecoverySpecial.ShipCondition.WRECKED, 210f, (Math.random() < 0.6));
         addDerelict(system, monitoring, "wolf_d_pirates_Attack", ShipRecoverySpecial.ShipCondition.BATTERED, 200f, (Math.random() < 0.6));
