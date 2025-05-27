@@ -27,24 +27,24 @@ public class SR_OrionPoint {
     //asteroids
     final float asteroids1Dist = 9500f;
     final float asteroidBelt1Dist = 3450f;
-    final float asteroidBelt2Dist = 15500f;
+    final float asteroidBelt2Dist = 19500f;
     //relays
     final float stable1Dist = 11500f;
-    final float buoy1Dist = 4550f;
-    final float relay1Dist = 8250f;
-    final float sensor1Dist = 14900f;
+    final float buoy1Dist = 6550f;
+    final float relay1Dist = 9250f;
+    final float sensor1Dist = 19200f;
     //planets
     final float lava1Dist = 2950f;
-    final float arid1Dist = 5350f;
-    final float betaDist = 7600f;
-    final float charlieDist = 9750f;
-    final float centralDist = 11550f;
-    final float gasDist = 14050f;
-    final float monitoringDist = 15500f;
+    final float arid1Dist = 5500f;
+    final float betaDist = 7500f;
+    final float charlieDist = 9500f;
+    final float centralDist = 10550f;
+    final float gasDist = 17550f;
+    final float monitoringDist = 19500f;
     //jumps
-    final float jumpInnerDist = 3250f;
-    final float jumpOuterDist = 9850;
-    final float jumpFringeDist = 18000f;
+    final float jumpInnerDist = 4050f;
+    final float jumpOuterDist = 10850;
+    final float jumpFringeDist = 23500f;
 
 
     public void generate(SectorAPI sector) {
@@ -55,7 +55,7 @@ public class SR_OrionPoint {
         system.setBackgroundTextureFilename("graphics/backgrounds/orion_background3.jpg");
 
         //praise the sun
-        PlanetAPI orionStar = system.initStar("s_OrionPoint", "star_orange_giant", 1250f, 1400, 7, 0.5f, 2f);
+        PlanetAPI orionStar = system.initStar("s_OrionPoint", "star_orange_giant", 1250f, 1650, 7, 0.5f, 2f);
         system.setLightColor(new Color(255, 200, 150));
 
         //JumppointInner
@@ -120,24 +120,34 @@ public class SR_OrionPoint {
                 "Orion Relay", // name - if null, defaultName from custom_entities.json will be used
                 "comm_relay", // type of object, defined in custom_entities.json
                 "SR"); // faction
-        orionStar_relay.setCircularOrbitPointingDown(orionStar, MathUtils.getRandomNumberInRange(0f, 360f), relay1Dist, 520);
+        orionStar_relay.setCircularOrbitPointingDown(orionStar, MathUtils.getRandomNumberInRange(0f, 360f), relay1Dist, 520f);
 
         SectorEntityToken orionStar_buoy = system.addCustomEntity("orionStar_buoy", // unique id
                 "Orion Nav Buoy", // name - if null, defaultName from custom_entities.json will be used
                 "nav_buoy", // type of object, defined in custom_entities.json
                 "SR"); // faction
-        orionStar_buoy.setCircularOrbitPointingDown(orionStar, MathUtils.getRandomNumberInRange(0f, 360f), buoy1Dist, 520);
+        orionStar_buoy.setCircularOrbitPointingDown(orionStar, MathUtils.getRandomNumberInRange(0f, 360f), buoy1Dist, 520f);
 
         SectorEntityToken orionStar_sensor = system.addCustomEntity("orionStar_sensor", // unique id
                 "Orion Sensor Array", // name - if null, defaultName from custom_entities.json will be used
                 "sensor_array", // type of object, defined in custom_entities.json
                 "SR"); // faction
-        orionStar_sensor.setCircularOrbitPointingDown(orionStar, MathUtils.getRandomNumberInRange(0f, 360f), sensor1Dist, 520);
+        orionStar_sensor.setCircularOrbitPointingDown(orionStar, MathUtils.getRandomNumberInRange(0f, 360f), sensor1Dist, 520f);
 
         // Gas Giant
         PlanetAPI gas = system.addPlanet("s_gas", orionStar, "Origon Giant", "gas_giant", 360f * (float) Math.random(), 400f, gasDist, 380f);
         //gas.setCustomDescriptionId("sr_orion_gasgiant"); //reference descriptions.csv
         PlanetConditionGenerator.generateConditionsForPlanet(gas, StarAge.OLD);
+
+        //Gas Moon Barren
+        PlanetAPI gasmoon1 = system.addPlanet("s_gasmoon1", gas, "Origon Barren Moon", "barren3", 360f * (float) Math.random(), 98f, 620f, 15f);
+        //gas.setCustomDescriptionId("sr_orion_gasgiant"); //reference descriptions.csv
+        PlanetConditionGenerator.generateConditionsForPlanet(gasmoon1, StarAge.OLD);
+
+        //Gas Moon Ice
+        PlanetAPI gasmoon2 = system.addPlanet("s_gasmoon2", gas, "Origon Ice Moon", "rocky_ice", 360f * (float) Math.random(), 95f, 515f, 2f);
+        //gas.setCustomDescriptionId("sr_orion_gasgiant"); //reference descriptions.csv
+        PlanetConditionGenerator.generateConditionsForPlanet(gasmoon2, StarAge.OLD);
 
         SectorEntityToken scrap1 = DerelictThemeGenerator.addSalvageEntity(system, Entities.SUPPLY_CACHE, Factions.DERELICT);
         scrap1.setId("s_gas_scrap1");
@@ -146,12 +156,12 @@ public class SR_OrionPoint {
         scrap1.setDiscoverable(Boolean.TRUE);
 
         // Arid
-        PlanetAPI arid1 = system.addPlanet("s_arid1", orionStar, "Tatoco", "arid", 360f * (float) Math.random(), 210f, arid1Dist, 380f);
+        PlanetAPI arid1 = system.addPlanet("s_arid1", orionStar, "Tatoco", "arid", 360f * (float) Math.random(), 220f, arid1Dist, 380f);
        // arid1.setCustomDescriptionId("sr"); //reference descriptions.csv
         PlanetConditionGenerator.generateConditionsForPlanet(arid1, StarAge.OLD);
 
         // Scorned
-        PlanetAPI lava1 = system.addPlanet("s_lava1", orionStar, "Scorned", "lava", 360f * (float) Math.random(), 130f, lava1Dist, 200f);
+        PlanetAPI lava1 = system.addPlanet("s_lava1", orionStar, "Scorned", "lava", 360f * (float) Math.random(), 150f, lava1Dist, 200f);
        // vengus.setCustomDescriptionId("sr"); //reference descriptions.csv
         PlanetConditionGenerator.generateConditionsForPlanet(lava1, StarAge.OLD);
 

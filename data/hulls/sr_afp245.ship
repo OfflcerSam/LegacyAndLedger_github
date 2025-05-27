@@ -14,10 +14,7 @@
   "builtInMods": [
     "automated",
     "autorepair",
-    "targetingunit",
-    "reinforcedhull",
     "hardenedshieldemitter",
-    "hardened_subsystems"
   ],
   "builtInWings": [
     "wasp_wing"
