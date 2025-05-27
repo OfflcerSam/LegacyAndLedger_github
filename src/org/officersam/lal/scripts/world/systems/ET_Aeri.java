@@ -116,20 +116,20 @@ public class ET_Aeri {
 
         // Relays
         SectorEntityToken aeriStar_relay = system.addCustomEntity("aeriStar_relay", // unique id
-                "Orion Relay", // name - if null, defaultName from custom_entities.json will be used
-                "comm_relay_makeshift", // type of object, defined in custom_entities.json
+                "Aeri Relay", // name - if null, defaultName from custom_entities.json will be used
+                "comm_relay", // type of object, defined in custom_entities.json
                 "SR"); // faction
         aeriStar_relay.setCircularOrbitPointingDown(aeriStar, MathUtils.getRandomNumberInRange(0f, 360f), relay1Dist, 520);
 
         SectorEntityToken aeriStar_buoy = system.addCustomEntity("aeriStar_buoy", // unique id
-                "Orion Nav Buoy", // name - if null, defaultName from custom_entities.json will be used
-                "nav_buoy_makeshift", // type of object, defined in custom_entities.json
+                "Aeri Nav Buoy", // name - if null, defaultName from custom_entities.json will be used
+                "nav_buoy", // type of object, defined in custom_entities.json
                 "SR"); // faction
         aeriStar_buoy.setCircularOrbitPointingDown(aeriStar, MathUtils.getRandomNumberInRange(0f, 360f), buoy1Dist, 520);
 
         SectorEntityToken aeriStar_sensor = system.addCustomEntity("aeriStar_sensor", // unique id
-                "Orion Sensor Array", // name - if null, defaultName from custom_entities.json will be used
-                "sensor_array_makeshift", // type of object, defined in custom_entities.json
+                "Aeri Sensor Array", // name - if null, defaultName from custom_entities.json will be used
+                "sensor_array", // type of object, defined in custom_entities.json
                 "SR"); // faction
         aeriStar_sensor.setCircularOrbitPointingDown(aeriStar, MathUtils.getRandomNumberInRange(0f, 360f), sensor1Dist, 520);
 

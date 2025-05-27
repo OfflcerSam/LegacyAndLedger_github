@@ -117,19 +117,19 @@ public class SR_OrionPoint {
         // Relays
         SectorEntityToken orionStar_relay = system.addCustomEntity("orionStar_relay", // unique id
                 "Orion Relay", // name - if null, defaultName from custom_entities.json will be used
-                "comm_relay_makeshift", // type of object, defined in custom_entities.json
+                "comm_relay", // type of object, defined in custom_entities.json
                 "SR"); // faction
         orionStar_relay.setCircularOrbitPointingDown(orionStar, MathUtils.getRandomNumberInRange(0f, 360f), relay1Dist, 520);
 
         SectorEntityToken orionStar_buoy = system.addCustomEntity("orionStar_buoy", // unique id
                 "Orion Nav Buoy", // name - if null, defaultName from custom_entities.json will be used
-                "nav_buoy_makeshift", // type of object, defined in custom_entities.json
+                "nav_buoy", // type of object, defined in custom_entities.json
                 "SR"); // faction
         orionStar_buoy.setCircularOrbitPointingDown(orionStar, MathUtils.getRandomNumberInRange(0f, 360f), buoy1Dist, 520);
 
         SectorEntityToken orionStar_sensor = system.addCustomEntity("orionStar_sensor", // unique id
                 "Orion Sensor Array", // name - if null, defaultName from custom_entities.json will be used
-                "sensor_array_makeshift", // type of object, defined in custom_entities.json
+                "sensor_array", // type of object, defined in custom_entities.json
                 "SR"); // faction
         orionStar_sensor.setCircularOrbitPointingDown(orionStar, MathUtils.getRandomNumberInRange(0f, 360f), sensor1Dist, 520);
 

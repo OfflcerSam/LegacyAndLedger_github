@@ -49,23 +49,23 @@ $faction.id == SR","AddText ""The port concourse is lined with only a couple shi
 ,,,,,,
 # Sampston relationship level descriptions,,,,,,
 relLevelCooperativeSampston,RelationshipLevelDesc,"$faction.rel == COOPERATIVE
-$faction.id == SR",FireAll RelLevelMoreDescription,You are great,,
+$faction.id == SR",FireAll RelLevelMoreDescription,"The Sampstonial database has identified you as extremely cooperative and valuable to their operations. You are granted elevated permissions and higher priority as a result, and a thank you card.",,
 relLevelFriendlySampston,RelationshipLevelDesc,"$faction.rel == FRIENDLY
-$faction.id == SR",FireAll RelLevelMoreDescription,You are good,,
+$faction.id == SR",FireAll RelLevelMoreDescription,The Sampstonial database has identified you as a pretty good asset to their operations. You are given some elevated permissions and priority in contracts. ,,
 relLevelWelcomingSampston,RelationshipLevelDesc,"$faction.rel == WELCOMING
-$faction.id == SR",FireAll RelLevelMoreDescription,You are okay,,
+$faction.id == SR",FireAll RelLevelMoreDescription,The Sampstonial database has identified you as an upcoming decent asset to their operations. You have been given slight permission and priority upgrades in certain contracts.,,
 relLevelFavorableSampston,RelationshipLevelDesc,"$faction.rel == FAVORABLE
-$faction.id == SR",FireAll RelLevelMoreDescription,You are neat,,
+$faction.id == SR",FireAll RelLevelMoreDescription,The Sampstonial database has identified you as a potential asset to their operations. You granted permission to conduct further business.,,
 relLevelNeutralSampston,RelationshipLevelDesc,"$faction.rel == NEUTRAL
-$faction.id == SR",FireAll RelLevelMoreDescription,You are?,,
+$faction.id == SR",FireAll RelLevelMoreDescription,"The Sampstonial database may or may not have you identified as a potential asset. Nothing special is granted to you, but they are open to business.",,
 relLevelSuspiciousSampston,RelationshipLevelDesc,"$faction.rel == SUSPICIOUS
-$faction.id == SR",FireAll RelLevelMoreDescription,You are mean,,
+$faction.id == SR",FireAll RelLevelMoreDescription,"The Sampstonial databse has identified you as suspicious. Every move you make in or outside of territory is monitored, but not heavily monitored yet.",,
 relLevelInhospitableSampston,RelationshipLevelDesc,"$faction.rel == INHOSPITABLE
-$faction.id == SR",FireAll RelLevelMoreDescription,You are evil,,
+$faction.id == SR",FireAll RelLevelMoreDescription,The Sampstonial database has identified you as a potential threat. Every move you make in or outside of territory is heavily monitored and scrutinized.,,
 relLevelHostileSampston,RelationshipLevelDesc,"$faction.rel == HOSTILE
-$faction.id == SR",FireAll RelLevelMoreDescription,You must be terminated,,
+$faction.id == SR",FireAll RelLevelMoreDescription,The Sampstonial database has identified you as a threat. Your moves are logged and shared with nearby patrols at all times.,,
 relLevelVengefulSampston,RelationshipLevelDesc,"$faction.rel == VENGEFUL
-$faction.id == SR",FireAll RelLevelMoreDescription,You will be terminated,,
+$faction.id == SR",FireAll RelLevelMoreDescription,"The Sampstonial database has identified you as a dangerous threat. Your moves are logged and shared with nearby strike forces at all times, with potential rewards for anyone who destroys you.",,
 #relLevelAmericaBaird,RelLevelMoreDescription,"$faction.id == SR
 $global.gaKA_completed",,You are known to have performed work for Provost Baird of the Galatia Academy.,,
 ,,,,,,
@@ -200,3 +200,178 @@ relLevelVengefulEterra,RelationshipLevelDesc,"$faction.rel == VENGEFUL
 $faction.id == UTFE",FireAll RelLevelMoreDescription,"Your actions have directly compromised the Federation’s integrity or personnel. Retaliatory efforts are likely already underway, and negotiation is no longer considered viable. There is no expectation of reconciliation. You and your $shipOrFleet are considered a threat worth dealing with now rather than later.",,
 #relLevelEterraBaird,RelLevelMoreDescription,"$faction.id == UTFE
 $global.gaKA_completed",,You are known to have performed work for Provost Baird of the Galatia Academy.,,
+,,,,,,
+,,,,,,
+,,,,,,
+#Voice Soldier -> SAIC,,,,,,
+convDefaultGreetingSAIC,PickGreeting,"!$contact_printedFirstReturnGreeting
+$voice == SAIC","$contact_printedFirstReturnGreeting = true 0
+ShowPersonVisual
+FireAll PopulateOptions","After a short wait, your connection request is accepted.
+
+""$PlayerName identified. You have reached $Post, $PlayerName, input request.""
+OR
+After a short wait, your connection request is accepted.
+
+""$Post has acccepted comms, $PlayerName, please input your request.""",,
+convDefaultGreeting2SAIC,PickGreeting,"$contact_printedFirstReturnGreeting
+$voice == SAIC","ShowPersonVisual
+FireAll PopulateOptions","""$Post has acccepted comms, $PlayerName, please input your request.""",,
+#convPlayerKnowsTJGreetingSAIC,PickGreeting,"!$contact_printedFirstReturnGreeting
+$voice == SAIC","$reactedPlayerKnowsTJ = true 90
+$contact_printedFirstReturnGreeting = true 0
+ShowPersonVisual
+FireAll PopulateOptions","After a short wait, your connection request is accepted.
+
+""$Post has acccepted comms, $PlayerName, please hold.""
+
+""Your $shipOrFleet identified with anomalous hyperspace maneuvers. No further action.""
+
+""$Post accepts further communication, please input your request.""",,
+contactGreetingSAIC,PickGreeting,"MissionHubCMD hasHub
+$voice == SAIC","ShowPersonVisual
+FireAll PopulateOptions","""$PersonRank has accepted comms, my identifier is $personName. Please input your request.""
+OR
+""Connection is stable, $PersonRank has accepted. What is your query?""
+OR
+""Line is secure, $PersonRank has accepted. What is your request""",,
+contactPrintAcceptTextSAIC,ContactPrintAcceptText,$voice == SAIC,,"$personName makes positive beeping noises, ""I will await your return.""
+OR
+""Operation is confirmed, you are wished good luck,"" $heOrShe says.
+OR
+$HeOrShe nods, ""Confirmed, carry out what's needed.""",,
+CBDeserterSAIC,CBDeserterOfferDesc,$voice == SAIC,Highlight $bcb_dist $bcb_reward $bcb_days,"""Identified rogue element, information loading stand-by.""
+
+""Rogue element, $thePersonFaction has been located in $bcb_systemName, aprox $bcb_dist light-years away.""
+
+""Current reward amount is $bcb_reward credits, time limit $bcb_days days. Do you accept this task?""",,
+LOCRPimprisonPiratesSAIC,DialogOptionSelected,"$option == locrp_imprisonPirates
+$voice == SAIC",,"""$Post has identified pirates in your custody. Transfer arrangements confirmed. Follow instructions and have a safe day.""
+
+Your comms are swiftly transferred to a security droid who makes further arrangements.",locrp_imprisonPirates2:Continue,
+,,,,,,
+#Voice Business -> SAIB,,,,,,
+convDefaultGreetingBusiness,PickGreeting,"!$contact_printedFirstReturnGreeting
+$voice == SAIB","$contact_printedFirstReturnGreeting = true 0
+ShowPersonVisual
+FireAll PopulateOptions","After a short wait, your connection request is accepted.
+
+""Greetings, $PlayerName. You have reached $personName, I await whatever request you have.""",,
+convDefaultGreeting2business,PickGreeting,"$contact_printedFirstReturnGreeting
+$voice == SAIB","ShowPersonVisual
+FireAll PopulateOptions","""Yes, do you need anything more?"" $HeOrShe says. ""I am awaiting anything you request.""",,
+buyHTDataConfirmSelBusiness,DialogOptionSelected,"$option == buyHTDataConfirm
+$voice == SAIB","AddCredits -$ht_dataCost
+$entity.boughtHTData = true 60
+HT_CMD getScavengerData
+FireAll PopulateOptions","""Your deal is confirmed, payment pending. Standby,"" after a moment, once payment is confirmed, a datastream transfers the agreed-upon hyperspace and slipstream data.
+
+""$personName thanks you for your business, have a good day.""",,
+buyHTDataNeverMindSelBusiness,DialogOptionSelected,"$option == buyHTDataNeverMind
+$voice == SAIB",FireAll PopulateOptions,"""There is no rush or push, your position is respected,"" $heOrShe says.",,
+#convPlayerKnowsTJGreetingBusiness,PickGreeting,"!$contact_printedFirstReturnGreeting
+$voice == SAIB","$reactedPlayerKnowsTJ = true 90
+$contact_printedFirstReturnGreeting = true 0
+ShowPersonVisual
+FireAll PopulateOptions","After a short wait, your connection request is accepted.
+
+""Greetings, $PlayerName."" $PersonName looks up from something, ""I see your $shipOrFleet has apparently done some interesting hyperspace maneuvers. Must trade easier, yes?""
+
+""So, do you need anything more?"" $HeOrShe says,""I am awaiting anything you request.""",,
+contactGreetingBusiness,PickGreeting,"MissionHubCMD hasHub
+$voice == SAIB","ShowPersonVisual
+FireAll PopulateOptions","""Greetings, you are back,"" says $personName. ""Should we get down to business?""
+OR
+""Good to see you, $PlayerName."" $personName tilts their head, ""Anything new?""",,
+contactPrintAcceptTextBusiness,ContactPrintAcceptText,$voice == SAIB,,"""This exchange will profit us both, captain,"" $heOrShe says.
+OR
+""The deal is positive and sealed, I will await your confirmation.""
+OR
+""Always a pleasure doing business,"" $heOrShe says.
+OR
+""I wish you luck in your future endeavors,"" $heOrShe says.",,
+LOCRPimprisonPiratesBusiness,DialogOptionSelected,"$option == locrp_imprisonPirates
+$voice == SAIB",,"""Pirates, you say?"" $Post $personLastName, ""Cleaning them up is always a positive for profits and for business. I will transfer you to someone who can make further arrangements.""
+
+$HeOrShe has you wait as your comms are forwarded to a security droid.",locrp_imprisonPirates2:Continue,
+,,,,,,
+,,,,,,
+,,,,,,
+#Voice Aristo -> SAIM,,,,,,
+convDefaultGreetingAristo,PickGreeting,"!$contact_printedFirstReturnGreeting
+$voice == SAIM","$contact_printedFirstReturnGreeting = true 0
+ShowPersonVisual
+FireAll PopulateOptions","After a short wait, your connection request is accepted.
+
+""Salutations dear captain. What brings you to me?""
+OR
+After a short wait, your connection request is accepted.
+
+""Why hello, aren't you just a character."" $HeOrShe looks at you expectantly. ""Did I hire you for something or other?""
+OR
+The comms resolve to $personName's face - distracted by something off-display. ""Oh you've interrupted- well, fine, fine. The damage is done.""
+
+""You!"" This, said to someone off-display, ""You can finish up later, I must take this.""
+
+$PersonName turns to you finally, ""-Well go on, what could be so important?""",,
+convDefaultGreeting2aristo,PickGreeting,"$contact_printedFirstReturnGreeting
+$voice == SAIM","ShowPersonVisual
+FireAll PopulateOptions","""Yes? I expect there's something more you need, isn't there.""",,
+buyHTDataConfirmSelAristo,DialogOptionSelected,"$option == buyHTDataConfirm
+$voice == SAIM","AddCredits -$ht_dataCost
+$entity.boughtHTData = true 60
+HT_CMD getScavengerData
+FireAll PopulateOptions","The $post nods approval as your payment is transferred, ""A fine move, my good captain,"" $heOrShe says, then executes the datastream to transfer the agreed-upon hyperspace and slipstream data.",,
+buyHTDataNeverMindSelAristo,DialogOptionSelected,"$option == buyHTDataNeverMind
+$voice == SAIM",FireAll PopulateOptions,,,
+#convPlayerKnowsTJGreetingAristo,PickGreeting,"!$contact_printedFirstReturnGreeting
+$voice == SAIM","$reactedPlayerKnowsTJ = true 90
+$contact_printedFirstReturnGreeting = true 0
+ShowPersonVisual
+FireAll PopulateOptions","After a short wait, your connection request is accepted.
+
+""Salutations captain,"" $heOrShe glances at you, then away, then back again in earnest. ""Captain $playerName! Why, are you not the one hopping to and fro across hyperspace? Of course you are!""
+
+Then, more to $himOrHerself, $heOrShe says ""My stars, this should provide a diverting anecdote.""
+
+$personName looks to you impatiently. ""Well do go on, $playerSirOrMadam. My attention is yours.""",,
+contactGreetingAristo,PickGreeting,"MissionHubCMD hasHub
+$voice == SAIM","ShowPersonVisual
+FireAll PopulateOptions","""Oh, it's the space captain, how delightful"" says $personName. ""Speaking with you is always so colorful.""",,
+contactPrintAcceptTextAristo,ContactPrintAcceptText,$voice == SAIM,,"""What a delightful little exchange, captain.""
+OR
+""Thank you, captain,"" $heOrShe smiles, ""This will make for a most amusing anecdote.""
+OR
+""What fun! This must be what it's like to work for a living.""
+OR
+""Splendid! How did I do?"" $HeOrShe asks, seeming not to await an answer, ""This is just as diverting as my uncle said it would be.""
+OR
+""Oh, yes. Father would approve, I think.""
+OR
+""Quite right, then!"" $HeOrShe says. ""Mother would be proud.""",,
+proComBlurbAristo,proCom_blurb,$voice == SAIM,,"""The family decided that I must 'demonstrate initiative' by procuring a cargo of $proCom_commodityName. Perhaps I could pay you to solve this little conundrum.""",,
+hmdfBlurbAristo,hmdf_blurb,$voice == SAIM,,"""Father has demanded I rid myself of an old freighter I've been meaning to fix up, he says it's taking up valuable space in his orbital hangar. I think he's being tremendously unfair. Perhaps you could take it?""",,
+hmdfOfferTextContactAristo,DialogOptionSelected,"$option == hmdf_start
+$voice == SAIM","$missionId = hmdf
+SetTextHighlights $hmdf_price","""It's a vintage $hmdf_hullClass freighter, and I was told by the seller that it's seen some real adventures. Terribly exciting, I feel, and it'd have made a fabulous conversation piece once I got it fixed up. There's always something coming up, however.""
+
+""I suppose I ought to make you pay for it to 'develop my business sense', as father put it. How much does a freighter cost, anyway. $hmdf_price credits, perhaps?""","hmdf_look:Ask for detailed info on the freighter
+contact_decline:Decline",
+hmdfLookAtFreighterAristo,DialogOptionSelected,"$option == hmdf_look
+$voice == SAIM","Call $hmdf_ref showShip
+DoCanAffordCheck $hmdf_price contact_accept false","$personName taps a few buttons to pull up the freighter schematics for your examination.
+
+""I was thinking to augment the engines and install black market safety overrides to compel some utterly thrilling burn speeds. Don't tell father my plan, he'd be simply wroth.""","contact_accept:Buy the freighter for $hmdf_price credits
+contact_decline:Decline",
+CBPirateAristo,CBPirateOfferDesc,$voice == SAIM,Highlight $bcb_dist $bcb_reward $bcb_days,"$HeOrShe taps on one of the entries to enlarge the report. A face scowls at you from an arrest record holo.
+
+""This charming individual believes they're some kind of pirate."" $PersonName gets a carnivorous look in $hisOrHer eyes, ""$bcb_TargetHeOrShe stole from me. This is unacceptable."" $HeOrShe leans back, casually, ""The lost credits are irrelevant, of course. What's important is the message such brigandage sends. We can't simply have pirates stealing the hard-earned wealth from those who rightfully possess it.""
+
+""The target is hiding in the $bcb_systemName which is $bcb_dist light-years distant. I shall reward you with $bcb_reward credits once you have put down the menace and I shall give you $bcb_days days to do so. Are we agreed?""",,
+CBPather1Aristo,CBPatherOfferDesc,$voice == SAIM,Highlight $bcb_dist $bcb_reward $bcb_days,"""Ah, this one, yes,"" $heOrShe pulls up an intel file. ""An adherent of the so-called 'Luddic Path'. Believes we'd all be better off smashing our computers and living in caves or some nonsense. You wouldn't believe the damage they cause when they can bring themselves to apply technology to meet their goals. This one is hiding out in the $bcb_systemName, $bcb_dist light-years away, and has caused great personal offense.""
+
+""I shall provide a reward of $bcb_reward credits for taking care of this fanatic. You'd have $bcb_days days to complete the mission.""",,
+LOCRPimprisonPiratesAristo,DialogOptionSelected,"$option == locrp_imprisonPirates
+$voice == SAIM",,"""Oh, delightful; another disgusting herd of space trash come to smear grime on everything they don't steal."" $Post $personLastName frowns dramatically, ""Well, we know how to treat the criminal element here, trust me on that. I'll have my subordinate handle the mess.""
+
+$HeOrShe has you wait as your comms are transferred to a security officer.",locrp_imprisonPirates2:Continue,

@@ -171,16 +171,26 @@
 	},
 	"voices":{
 		"LOW":{
-			"soldier":10,
+			"SAIC":15,
+			"SAIM":5,
+			"soldier"10,
 			"scientist":5,
 		},
 		"MEDIUM":{
-			"soldier":10,
+			"SAIC":15,
+			"SAIM":10,
+			"SAIB":5,
+			"soldier":5,
+			"official":10,
 			"scientist":5,
+			"business":5,
 		},
 		"HIGH":{
-			"soldier":10,
-			"scientist":5,
+			"SAIC":5,
+			"SAIM":10,
+			"SAIB":10,
+			"official":10,
+			"aristo":5,
 		},
 	},
 	"custom":{
