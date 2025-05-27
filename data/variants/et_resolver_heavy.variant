@@ -1,0 +1,61 @@
+{
+  "variantId": "et_resolver_heavy",
+  "hullId": "et_resolver",
+  "displayName": "Heavy",
+  "goalVariant": true,
+  "fluxCapacitors": 20,
+  "fluxVents": 20,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "MMissileL": "sabot",
+        "MMissileL2": "sabot",
+        "MMissileR2": "sabot",
+        "MMountR": "sabot",
+        "WS0001": "heavy_mass_driver",
+        "WS0002": "heavy_mass_driver"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "light_mass_driver",
+        "WS0004": "light_mass_driver"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0005": "pdburst",
+        "WS0006": "pdburst"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0007": "pdburst",
+        "WS0008": "pdburst"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {}
+    }
+  ],
+  "modules": [],
+  "wings": [
+    "thunder_wing",
+    "thunder_wing",
+    "dagger_wing",
+    "dagger_wing"
+  ]
+}

@@ -1,0 +1,87 @@
+{
+	# should be a copy of "combatSmall", minus standards that are annoying to fight in low numbers
+	# for example, no Hyperions or fast beam-based kiting loadouts, or ships with damper field
+	"combatSmallForSmallFleet":{
+			"et_contractor_pursuit":20,
+			"sr_afp245_patrol":20,
+	},
+	"combatSmall":{
+
+	},
+	"combatMedium":{
+
+			
+	},
+	"combatLarge":{
+
+			
+	},
+	"combatCapital":{
+	
+	},
+	
+	
+	# hybrid ships with good combat and cargo capacity
+	"combatFreighterSmall":{
+			"et_resolver_heavy":10,
+	},
+	"combatFreighterMedium":{
+
+	},
+	"combatFreighterLarge":{
+
+	},
+
+	# carriers
+	"carrierSmall":{
+
+	},
+	"carrierMedium":{
+
+	},
+	"carrierLarge":{
+	
+	},
+
+	# phase ships
+	"phaseSmall":{
+	},
+	"personnelSmall":{	
+	},		
+	"personnelMedium":{
+	},
+	
+	# utility ships
+	"tug":{
+	},
+	"crig":{
+	},
+	"utility":{
+	},
+	"civilianRandom":{
+	},
+	
+	# freighters and such
+	"freighterSmall":{
+
+	},
+	"freighterMedium":{
+
+
+	},
+	"freighterLarge":{
+		
+	},
+	
+	"tankerSmall":{
+
+	},
+	"tankerMedium":{
+
+	},
+	"tankerLarge":{
+		
+	},
+	
+	
+}

@@ -1,0 +1,202 @@
+id,trigger,conditions,script,text,options,notes
+# Sampston fleet greeting lines,,,,,,
+greetingSampstonFriendly,OpenCommLink,"$faction.id == SR
+$faction.friendlyToPlayer","$menuState = fleetConvMain 0
+FireAll PopulateOptions","Garbled but robotic static is heard before it clears up then: ""Reading $shipOrFleet. Identified, greetings $playerSirOrMadam. Is there anything you need?""
+OR
+Unintelligible computer noises are heard before it clears up then: ""Greetings, $playerName. This $PersonRank greets you.""
+OR
+Weird static is heard before it clears up then: ""Signal confirmed. $shipOrFleet. $playerName. This $PersonRank greets you.""",,
+greetingSampstonHostileWeaker,OpenCommLink,"$faction.id == SR
+$entity.isHostile
+$entity.relativeStrength < 0",$entity.ignorePlayerCommRequests = true 1,"There is only garbled static.
+OR
+Your comm isn't answered.
+OR
+High pitched computer noises are heard, you have to cut the comm before it deafens you.",cutCommLink:Cut the comm link,
+greetingSampstonHostileWeakerDefiant,OpenCommLink,"$faction.id == SR
+$entity.isHostile
+$entity.relativeStrength < 0
+$entity.weakerThanPlayerButHolding",$entity.ignorePlayerCommRequests = true 1,"High pitched computer noises are heard then: ""$shipOrFleet prepared to be terminated.""
+OR
+Aggressive sounding static is heard before the comm is cut.
+OR
+High pitched computer noises are played over the comm before you can react, you almost faint before you can get it off.",cutCommLink:Cut the comm link,
+greetingSampstonHostileStronger,OpenCommLink,"$faction.id == SR
+$entity.isHostile
+$entity.relativeStrength >= 0",$entity.ignorePlayerCommRequests = true 1,"Aggressive computer noises are heard then: ""$shipOrFleet, negotiation channels are closing.""
+OR
+High pitched unintelligible sounds are heard, your screen only shows a red X before it cuts.",cutCommLink:Cut the comm link,
+greetingSampstonNeutral,OpenCommLink,"$faction.id == SR
+$faction.neutralToPlayer","$menuState = fleetConvMain 0
+FireAll PopulateOptions","Garbled but robotic static is heard before it clears up then: ""Reading $shipOrFleet. Go ahead with request.""
+OR
+Weird static is heard before it clears up then: ""Signal confirmed. $shipOrFleet. $playerName. You are greeted by this $PersonRank.""",,
+,,,,,,
+# Sampston Trade panel flavor text,,,,,,
+flavorTextMarketSampston,TradePanelFlavorText,"$global.tradePanelMode == MARKET
+$faction.id == SR","AddText ""The port concourse is neatly lined with several ships of various size, there is small to medium gatherings of crew and passengers moving in organized groups to their designated lots, some on hovering transport shuttles others walk, there is no real standing lines out here. Cargo is also smoothly offloaded and loaded within mere minutes, allowing for fast onloading and offloading. There is a distinct lack of market posters and advertisements aswell, the only posts being informational."" marketFlavorTextColor",,,
+flavorTextMarketSampstonSmall,TradePanelFlavorText,"$global.tradePanelMode == MARKET
+$marketSize < 4
+$stability > 1
+$faction.id == SR","AddText ""The port concourse is neatly lined with smaller variety of ships, there is small gatherings of crew and passengers moving in organized groups to their designated lots, some on hovering transport shuttles others walk, there is no real standing lines out here. Cargo is also smoothly offloaded and loaded within mere minutes, allowing for fast onloading and offloading. There is a distinct lack of market posters and advertisements aswell, the only posts being informational."" marketFlavorTextColor",,,
+flavorTextMarketSampstonUnstable,TradePanelFlavorText,"$global.tradePanelMode == MARKET
+$stability == 1
+$faction.id == SR","AddText ""The port concourse is neatly lined with several ships of various size, crew and passengers are escorted by police drones on transport shuttles no one is allowed to be unattended. Cargo is still being smoothly offloaded and loaded despite the increased security."" marketFlavorTextColor",,,
+flavorTextMarketSampstonVeryUnstable,TradePanelFlavorText,"$global.tradePanelMode == MARKET
+$stability == 0
+$faction.id == SR","AddText ""The port concourse is lined with only a couple ships that are allowed to land at a time. Cargo, crew, and passengers are escorted on police shuttles to their designated destination. There is a noticable increase in the amount of patrolling police droids and drones."" marketFlavorTextColor",,,
+,,,,,,
+# Sampston relationship level descriptions,,,,,,
+relLevelCooperativeSampston,RelationshipLevelDesc,"$faction.rel == COOPERATIVE
+$faction.id == SR",FireAll RelLevelMoreDescription,You are great,,
+relLevelFriendlySampston,RelationshipLevelDesc,"$faction.rel == FRIENDLY
+$faction.id == SR",FireAll RelLevelMoreDescription,You are good,,
+relLevelWelcomingSampston,RelationshipLevelDesc,"$faction.rel == WELCOMING
+$faction.id == SR",FireAll RelLevelMoreDescription,You are okay,,
+relLevelFavorableSampston,RelationshipLevelDesc,"$faction.rel == FAVORABLE
+$faction.id == SR",FireAll RelLevelMoreDescription,You are neat,,
+relLevelNeutralSampston,RelationshipLevelDesc,"$faction.rel == NEUTRAL
+$faction.id == SR",FireAll RelLevelMoreDescription,You are?,,
+relLevelSuspiciousSampston,RelationshipLevelDesc,"$faction.rel == SUSPICIOUS
+$faction.id == SR",FireAll RelLevelMoreDescription,You are mean,,
+relLevelInhospitableSampston,RelationshipLevelDesc,"$faction.rel == INHOSPITABLE
+$faction.id == SR",FireAll RelLevelMoreDescription,You are evil,,
+relLevelHostileSampston,RelationshipLevelDesc,"$faction.rel == HOSTILE
+$faction.id == SR",FireAll RelLevelMoreDescription,You must be terminated,,
+relLevelVengefulSampston,RelationshipLevelDesc,"$faction.rel == VENGEFUL
+$faction.id == SR",FireAll RelLevelMoreDescription,You will be terminated,,
+#relLevelAmericaBaird,RelLevelMoreDescription,"$faction.id == SR
+$global.gaKA_completed",,You are known to have performed work for Provost Baird of the Galatia Academy.,,
+,,,,,,
+# Eterra fleet greeting lines,,,,,,
+greetingEterraFriendly,OpenCommLink,"$faction.id == UTFE
+$faction.friendlyToPlayer","$menuState = fleetConvMain 0
+FireAll PopulateOptions","The screen flickers on, a friendly face broadcasted, then: ""Ahh... $playerSirOrMadam $playerName. How can I help?""
+OR
+The screen lights up, $hisOrHer countenance holds a genuine smile: ""$personName here. Shall we talk business?""
+OR
+A warm tone carries over the channel as the image sharpens: ""$playerSirOrMadam $playerName! Wonderful seeing you.""
+OR
+The feed stabilizes, a relaxed voice follows: ""$personRank $personName here. I've got time.""
+OR
+The screen comes to life with a light grin, then: ""What’s on your radar, $playerSirOrMadam?""
+OR
+The transmission hums softly as the display sharpens: ""Ah, $playerName. What can I do for you today?""",,
+greetingEterraHostileWeaker,OpenCommLink,"$faction.id == UTFE
+$entity.isHostile
+$entity.relativeStrength < 0",$entity.ignorePlayerCommRequests = true 1,"The screen flickers on, a nervous face broadcasted, then: ""Didn’t expect you... what do you want?""
+OR
+The screen lights up, $hisOrHer voice unsteady beneath a thin smile: ""$personName here. Let’s... keep this civil.""
+OR
+The feed stabilizes with visible hesitation: ""$personRank $personName. I’m listening, no tricks.""
+OR
+The transmission crackles, a wary tone follows: ""You’ve made your point, $playerSirOrMadam. Just do what you came to do.""
+OR
+The image resolves, and $hisOrHer shoulders tense: ""We don’t have to escalate this... do we?""
+OR
+The screen steadies, $hisOrHer eyes flicking off-screen: ""$personName. Let’s be professional.""
+OR
+A pause before the signal comes through, voice tight: ""$playerName. I’d prefer you let me pass.""
+OR
+The connection opens, $hisOrHer posture visibly guarded: ""If you’re here to push, $playerSirOrMadam... $theFaction stands behind me.""
+OR
+The interface stabilizes, $hisOrHer voice lower than usual: ""You’re not here for blood, right? There’s other options...""
+OR
+The broadcast engages, the words rushed and tense: ""No sudden moves, $playerSirOrMadam. Say what you need.""",,
+greetingEterraHostileWeakerDefiant,OpenCommLink,"$faction.id == UTFE
+$entity.isHostile
+$entity.relativeStrength < 0
+$entity.weakerThanPlayerButHolding",$entity.ignorePlayerCommRequests = true 1,"The screen flickers on, $hisOrHer posture sharp: ""If you want control, you’ll have to take it."" The comlink cuts.
+OR
+The screen lights up briefly, $hisOrHer glare says enough. The transmission ends without a word.
+OR
+The feed stabilizes; $heOrShe scoffs: ""You're no better than a pirate.""
+OR
+The image resolves, $hisOrHer voice flat: ""$playerSirOrMadam, $theFaction doesn't bend."" The screen cuts mid-transmission.
+OR
+The connection opens, no image, only the voice, and only a message before the feed cuts: ""If you're here to intimidate, you're late.""
+OR
+$hisOrHer face flickers into view, visibly defiant: ""$playerSirOrMadam. I'm not here to beg."" The feed is killed.
+OR
+No face, no name. Just this: ""You’re not the only one with options."" The link drops abruptly.
+OR
+A static-warped voice cuts in: ""Whatever you're expecting, don't."" The comlink cuts.",cutCommLink:Cut the comm link,
+greetingEterraHostileStronger,OpenCommLink,"$faction.id == UTFE
+$entity.isHostile
+$entity.relativeStrength >= 0",$entity.ignorePlayerCommRequests = true 1,"The screen steadies, no introduction: ""Negotiation implies you have leverage."" Click.
+OR
+The screen lights up, $hisOrHer expression unreadable: ""You're not in a position to request anything, $playerSirOrMadam."" The signal ends cleanly.
+OR
+The feed stabilizes; $heOrShe barely glances at the camera: ""$personName. You know how this ends."" The line cuts.
+OR
+A brief tone, followed by silence—then the transmission ends without a word.
+OR
+The connection opens mid-command: ""Log this as noncompliant. Proceed with enforcement."" The link severs.
+OR
+$hisOrHer face appears, relaxed, amused: ""You should’ve stayed on the right side of the market, $playerSirOrMadam."" Click.
+OR
+No introduction—only a dry voice: ""You had your chance."" The feed drops.
+OR
+$hisOrHer face fills the screen, calm and cruel: ""We’re done talking."" The channel goes black.
+OR
+The screen lights up, $heOrShe smiles faintly: ""It’s rare we get to be direct. I enjoy it."" No reply. Signal ends.
+OR
+The transmission comes through clean, clinical: ""This channel is unnecessary."" Cut.",cutCommLink:Cut the comm link,
+greetingEterraNeutral,OpenCommLink,"$faction.id == UTFE
+$faction.neutralToPlayer","$menuState = fleetConvMain 0
+FireAll PopulateOptions","The screen flickers on, a reserved face broadcasted, then: ""Yes, $playerSirOrMadam?""
+OR
+The screen lights up, $hisOrHer expression unreadable: ""$personName here. You have business?""
+OR
+The feed stabilizes with a low hum: ""$personRank $personName. What do you need, $playerSirOrMadam?""
+OR
+The transmission crackles briefly, then clears: ""Go ahead, $playerSirOrMadam.""
+OR
+The image resolves, tone measured: ""You’re through. Make it count, $playerSirOrMadam.""
+OR
+The screen steadies, eyes focused and impassive: ""$personName. Proceed.""
+OR
+A faint delay precedes the voice, $hisOrHer mouth forms a trained smile: ""May I help you, $playerSirOrMadam?""
+OR
+The connection opens, voice clipped and direct: ""If this is official, state it. If not, get to the point.""
+OR
+The interface stabilizes with a faint hum: ""$personRank $personName. Listening.""
+OR
+The broadcast engages; there’s no change in expression: ""$playerSirOrMadam. Go on.""",,
+,,,,,,
+# Eterra Trade panel flavor text,,,,,,
+flavorTextMarketEterra,TradePanelFlavorText,"$global.tradePanelMode == MARKET
+$faction.id == UTFE","AddText ""The concourse is clean, orderly, and unmistakably Federation—cargo lifts hum in regular intervals, and the UTFE emblem gleams from every customs checkpoint. Trade officials move with purpose between docks while contracted loaders work in modular sync to offload freighters. Digital kiosks track cargo flow with near-perfect precision. Occasional announcements remind crews to check their clearances before departure."" marketFlavorTextColor",,,
+flavorTextMarketEterraSmall,TradePanelFlavorText,"$global.tradePanelMode == MARKET
+$marketSize < 4
+$stability > 1
+$faction.id == UTFE","AddText ""The concourse is compact but efficient, with UTFE banners displayed at regular intervals and modular containers lined in neat rows. Smaller freighters and licensed charters offload under the watch of quiet, organized inspection crews. Trade is subdued but consistent, and official signage reminds visitors that all docking windows are subject to review."" marketFlavorTextColor",,,
+flavorTextMarketEterraUnstable,TradePanelFlavorText,"$global.tradePanelMode == MARKET
+$stability == 1
+$faction.id == UTFE","AddText ""The concourse operates under reduced staffing, but the Federation banners still hang, flanked by automated inspection drones. Trade traffic is light, and the flow of cargo is carefully controlled through sealed lanes. Officials seem tense—every movement checked twice, every manifest verified aloud. A notice loop reminds visitors that temporary restrictions are in place 'for systemic integrity.'"" marketFlavorTextColor",,,
+flavorTextMarketEterraVeryUnstable,TradePanelFlavorText,"$global.tradePanelMode == MARKET
+$stability == 0
+$faction.id == UTFE","AddText ""The concourse feels hollow, with flickering UTFE signage and half-manned checkpoints behind sealed barriers. Only a few ships dock—most under escort—and the offloading process is slow, tense, and watched by armed security. Clearance procedures have been replaced by spoken orders and ID scans at rifle-point. A repeating tone plays from damaged loudspeakers: 'Maintain corridor discipline. Your cooperation preserves stability.'"" marketFlavorTextColor",,,
+,,,,,,
+# Eterra relationship level descriptions,,,,,,
+relLevelCooperativeEterra,RelationshipLevelDesc,"$faction.rel == COOPERATIVE
+$faction.id == UTFE",FireAll RelLevelMoreDescription,"Your record shows consistent alignment with Federation priorities. You are considered a trusted external agent, and access to high-level support or infrastructure may be granted with minimal oversight. Strategic planners reference your activity in favorable terms. Internal communications suggest you may be quietly treated as an unofficial extension of the system.",,
+relLevelFriendlyEterra,RelationshipLevelDesc,"$faction.rel == FRIENDLY
+$faction.id == UTFE",FireAll RelLevelMoreDescription,"You are viewed as a valuable and reliable partner. UTFE personnel are encouraged to extend logistical or diplomatic courtesies when appropriate. Your presence is known, noted, and largely welcomed throughout most systems. Several branches consider your continued activity a net gain to regional operations.",,
+relLevelWelcomingEterra,RelationshipLevelDesc,"$faction.rel == WELCOMING
+$faction.id == UTFE",FireAll RelLevelMoreDescription,"Federation officers and trade coordinators recognize you as a positive force. While you hold no formal privileges, communication and access proceed with minimal resistance. You are seen as predictable and broadly beneficial. Informal paths may open in places where protocol allows discretion.",,
+relLevelFavorableEterra,RelationshipLevelDesc,"$faction.rel == FAVORABLE
+$faction.id == UTFE",FireAll RelLevelMoreDescription,"Relations are smooth, if not yet strategic. You are generally respected, occasionally referenced, and unlikely to face administrative resistance. Useful, but not yet vital. Given time or further alignment, this could develop into deeper access.",,
+relLevelNeutralEterra,RelationshipLevelDesc,"$faction.rel == NEUTRAL
+$faction.id == UTFE",FireAll RelLevelMoreDescription,"Your activities have raised neither concern nor confidence. Federation systems will process you efficiently, without favor or prejudice. Access is permitted, but nothing is extended beyond baseline protocols. Your name appears on no special lists—good or bad.",,
+relLevelSuspiciousEterra,RelationshipLevelDesc,"$faction.rel == SUSPICIOUS
+$faction.id == UTFE",FireAll RelLevelMoreDescription,"You are operating near the edge of tolerance. Patterns in your activity have prompted review, and while no direct action is warranted, internal advisories recommend caution. You are no longer overlooked. Interactions may be logged for further assessment.",,
+relLevelInhospitableEterra,RelationshipLevelDesc,"$faction.rel == INHOSPITABLE
+$faction.id == UTFE",FireAll RelLevelMoreDescription,"Your presence is unwelcome across most Federation channels. You are blocked from standard access, and your movements are routinely logged. No aid is to be offered unless mandated by regulation. Crews are instructed to minimize contact unless required by law or fleet standing orders.",,
+relLevelHostileEterra,RelationshipLevelDesc,"$faction.rel == HOSTILE
+$faction.id == UTFE",FireAll RelLevelMoreDescription,"Your actions have harmed Federation assets or personnel, directly or through affiliation. Defensive protocols will be triggered upon detection, and you will receive no communication beyond operational necessity. You are treated as an immediate tactical risk. Where possible, response forces are granted autonomous authority.",,
+relLevelVengefulEterra,RelationshipLevelDesc,"$faction.rel == VENGEFUL
+$faction.id == UTFE",FireAll RelLevelMoreDescription,"Your actions have directly compromised the Federation’s integrity or personnel. Retaliatory efforts are likely already underway, and negotiation is no longer considered viable. There is no expectation of reconciliation. You and your $shipOrFleet are considered a threat worth dealing with now rather than later.",,
+#relLevelEterraBaird,RelLevelMoreDescription,"$faction.id == UTFE
+$global.gaKA_completed",,You are known to have performed work for Provost Baird of the Galatia Academy.,,

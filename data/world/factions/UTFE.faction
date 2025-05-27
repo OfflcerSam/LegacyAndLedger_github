@@ -1,0 +1,329 @@
+{
+	id:"UTFE",
+	"color":[255,165,38,255],
+	"baseUIColor":[255,165,38,255],
+    "darkUIColor":[38,35,32,175],
+    "gridUIColor":[191,150,109,75],
+	
+	"secondaryUIColor":[255,215,0,255],
+    "secondarySegments":6,
+
+	
+	"displayName":"Eterra",
+	"displayNameWithArticle":"Eterra",
+	"displayNameLong":"United Trade Federation of Eterra",
+	"displayNameLongWithArticle":"the United Trade Federation of Eterra",
+	"logo":"graphics/factions/UTFE/UTFE_flag.png",
+	"crest":"graphics/factions/UTFE/UTFE_crest.png",
+	"shipNamePrefix":"EFFA",
+	"shipNameSources":{
+	"UTFE_FLEET":1,
+	},
+	"description":"",
+	"names":{
+		"modern":1,
+	},
+	
+ # variantOverrides restricts hulls to listed variants and adjusts their probability
+  "variantOverrides": {
+  },
+  # multiplier for how often hulls show up in the faction's fleets
+  "hullFrequency": {
+		"tags":{
+    },
+		"hulls":{		
+	},
+},
+  # ships the faction gets access to when importing S&W out-of-faction
+  "shipsWhenImporting": {
+    "tags":[],
+    "hulls":[],
+  },
+  
+  "knownShips": {
+    "tags": ["esd_bp", "UTFE"],
+		"hulls":[
+			"et_resolver",
+			"et_contractor",
+	],
+  },
+  # listing ships here will make the faction mostly use them even if other hulls become available
+  "priorityShips": {
+    "tags": ["esd_bp", "UTFE"],
+    "hulls": [
+			"et_resolver",
+			"et_contractor",
+      ],		
+  },
+	"knownFighters":{
+		"tags":["esd_bp", "midline_bp", "hightech_bp", "UTFE"],
+		"fighters":[
+
+		],
+	},
+	"priorityFighters":{
+		"tags":[],
+       "fighters":[
+		],
+  },
+  "knownWeapons": {
+    "tags": ["esd_bp", "midline_bp", "hightech_bp", "UTFE"],
+    "weapons": [
+
+        ],
+  },
+  "priorityWeapons": {
+    "tags": [],
+    "weapons": [
+        ],
+	},
+	"knownHullMods":{
+		"tags":["base_bp", "standard"],
+		"hullMods":[
+      "converted_hangar",
+      "turretgyros",
+      "armoredweapons",
+      "ballistic_rangefinder",
+      "augmentedengines",
+      "converted_hangar",
+      "expanded_deck_crew",
+      "magazines",
+      "missleracks",
+      "extendedshieldemitter",
+      "frontemitter",
+      "frontshield", # makeshift
+      "heavyarmor",
+      "insulatedengine",
+      "nav_relay",
+      "operations_center",
+      "recovery_shuttles",
+      "fluxdistributor",
+      "surveying_equipment",
+      "efficiency_overhaul",
+	  "fluxcoil",
+	  "targetingunit",
+	  "hardened_subsystems",
+		],
+	},
+	"weaponSellFrequency":{
+
+	},
+	"fighterSellFrequency":{
+
+	},
+	"hullmodSellFrequency":{
+
+	},	
+	"factionDoctrine":{
+		"warships":4,
+		"carriers":3,
+		"phaseShips":0,
+		
+		"officerQuality":2,
+		"shipQuality":4,
+		"numShips":1,
+		
+		"shipSize":3,
+		
+		"aggression":2,
+		
+		"combatFreighterProbability":0.5,     				# instead of some portion of the freighters in a fleet
+		"combatFreighterCombatUseFraction":0.2,				# as part of the normal combat lineup
+		"combatFreighterCombatUseFractionWhenPriority":1,   # as part of normal combat lineup, when marked as priority ship
+		"autofitRandomizeProbability":0.25,
+		
+		"officerSkillsShuffleProbability":1f,
+		"officerSkills":[
+			"energy_weapon_mastery",
+			"field_modulation",
+		],
+		
+		"commanderSkillsShuffleProbability":1,
+		"commanderSkills":[
+			"fighter_uplink",
+			"carrier_group",
+			"crew_training",
+			"officer_training",
+			"coordinated_maneuvers",
+			"electronic_warfare",
+			"flux_regulation",
+		],
+	},
+	"illegalCommodities":[
+		
+	],
+		"music":{
+		#"theme":"music_SR_market_neutral",
+		#"market_neutral":"music_SR_market_neutral",
+		#"market_hostile":"music_SR_market_hostile",
+		#"market_friendly":"music_SR_market_friendly",
+		#"encounter_neutral":"music_SR_encounter_neutral",
+		#"encounter_hostile":"music_SR_encounter_hostile",
+		#"encounter_friendly":"music_SR_encounter_friendly",
+	},
+
+	"internalComms":"UTFE_internal",
+	"portraits":{
+		"standard_male":[
+			"graphics/portraits/UTFE.png",
+		],
+		"standard_female":[
+			"graphics/portraits/UTFE.png",	
+		],			
+	},
+	"voices":{
+		"LOW":{
+			"soldier":10,
+			"official":5,
+		},
+		"MEDIUM":{
+			"soldier":10,
+			"official":5,
+		},
+		"HIGH":{
+			"soldier":10,
+			"business":5,
+			"official":10,
+		},
+	},
+	"custom":{
+		"offersCommissions":true,
+		"engagesInHostilities":true,
+		"buysAICores":true,
+		"fightToTheLast":true,
+		"AICoreValueMult":4,
+		"AICoreRepMult":2,
+		"buysSurveyData":true,
+		"hostilityImpactOnGrowth":false,
+		"caresAboutAtrocities":false,
+		"punitiveExpeditionData":{
+			"vsCompetitors":false,
+			"vsFreePort":false,
+			"canBombard":false,
+			"territorial":false,
+		},
+		"simulatorData":{
+			"showInSimulator":true,
+			"standardAICores":true,
+			"includeCivShipsWithFaction":true,
+		},
+	},
+	"ranks":{
+		"ranks":{
+			"factionLeader":{"name":"Central Core"},
+
+			"spaceSailor":{"name":"Sailor"},
+			"spaceChief":{"name":"Sergeant"},
+			"spaceEnsign":{"name":"Ensign"},
+			"spaceLieutenant":{"name":"Captain"},
+			"spaceCommander":{"name":"Lieutenant Colonel"},
+			"spaceCaptain":{"name":"Colonel"},
+			"spaceAdmiral":{"name":"Lieutenant General"},
+			"spaceMarshal":{"name":"General"},
+		
+			"groundPrivate":{"name":"Private"},
+			"groundSergeant":{"name":"Sergeant"},
+			"groundLieutenant":{"name":"Lieutenant"},
+			"groundCaptain":{"name":"Captain"},
+			"groundMajor":{"name":"Major"},
+			"groundColonel":{"name":"Colonel"},
+			"groundGeneral":{"name":"General"},
+			
+			"chiefHighInspector":{"name":"Deputy Director of the Federal Buerau of Investigation"},
+			"deputyStarMarshal":{"name":"Deputy Marshal Inspector"},
+			"guardHighDeputyExecutor":{"name":"Attorney General"},
+		
+			"citizen":{"name":"American Citizen"},
+			"executive":{"name":"Corporate Deputy"},
+			"seniorExecutive":{"name":"Corporate Officer"},
+			"agent":{"name":"Federal Agent"},
+			"specialAgent":{"name":"CIA Operative"},
+			
+			"aristocrat":{name:"Chief Executive Officer"},
+
+		},
+		"posts":{
+			"factionLeader":{"name":"High Secretary of the Council"},
+		
+			"patrolCommander":{"name":"Patrol Leader"},
+			"fleetCommander":{"name":"Fleet Commander"},
+			
+			"baseCommander":{"name":"Planetary Operations Director"},
+			"stationCommander":{"name":"Station Operations Director"},
+			"outpostCommander":{"name":"Outpost Operations Director"},
+			"portmaster":{"name":"Dockmaster"},
+			
+			"intelligenceDirector":{"name":"Director of the Central Intelligence Agency"},
+			"guardLeader":{"name":"Director of Homeland Security"},
+			
+			"supplyOfficer":{"name":"Quartermaster Officer"},
+			"supplyManager":{"name":"Logistics Officer"},
+			"medicalSupplier":{"name":"General Medical Officer"},
+			
+			"administrator":{"name":"Civilian Administrator"},
+			"militaryAdministrator":{"name":"Military Administrator"},
+			"freeAdmin":{"name":"Freelance Administrator"},
+			
+			"minorCriminal":{"name":"First-time Felon"},
+			"criminal":{"name":"Repeat-Offender"},
+			"spacer":{"name":"Drifter"},
+			
+			"genericMilitary":{"name":"Lieutenant Colonel"},
+			"marineSquadLeader":{"name":"Sergeant"},
+			
+			"trader":{"name":"Commercial Tradesman"},
+			"merchant":{"name":"Corporate Exchange Officer"},
+			
+			"shady":{"name":"Suspicious Character"},
+			"armsDealer":{"name":"Commercial Arms Dealer"},
+
+			"citizen":{"name":"American Citizen"},
+			
+			"mercenary":{"name":"Mercenary Officer"},
+			"officer":{"name":"Officer"},
+			"officer_for_hire":{"name":"Junior Officer (available for hire)"}, 
+			
+			"investigator":{"name":"Federal Investigator"},
+			"agent":{"name":"Federal Agent"},
+			"specialAgent":{"name":"CIA Operative"},
+			
+			
+			"securityChief":{name:"Security Director"},
+			"aristocrat":{name:"Corporate Executive Officer"},
+		},
+	},
+	"fleetTypeNames":{
+
+	"trade": "Commercial Trade Fleet",
+	"tradeLiner": "Corporate Spaceliner Fleet",
+	"tradeSmuggler":"'Free' Trader",
+	"smallTrader": "Local Trade Fleet",
+	
+    "patrolSmall": "Naval Police Patrol",
+    "patrolMedium": "Naval Strike Group",
+    "patrolLarge": "Naval Support Detachment",
+
+	"supplyFleet":"Naval Logistics Fleet",
+	
+	"investigators":"Federal Investigators",
+	
+    "inspectionFleet": "Federal Investigation Fleet",
+    "taskForce": "Naval Strike Force",		
+	
+	"scavengerSmall":"Local Recovery Group",
+	"scavengerMedium":"Commercial Recovery Fleet",
+	"scavengerLarge":"Corporate Recovery Fleet",
+	
+	"foodReliefFleet":"Humanitarian Aid Convoy",
+	
+	"mercScout":"PMC Scouting Party",
+	"mercBountyHunter":"Fugitive Recovery Agent",
+	"mercPrivateer":"PMC Group",
+	"mercPatrol":"PMC Patrol Group",
+	"mercArmada":"PMC Strike Fleet",
+	
+	"battlestation":"Star Fortress",
+		
+	},
+		
+},

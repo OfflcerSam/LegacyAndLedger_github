@@ -1,0 +1,50 @@
+{
+	"defaultChannels":[
+		"SR_public",
+		"UTFE_public",
+	],
+	"SR_public":{
+		"name":"Public Broadcast",
+		"logo":"graphics/icons/intel/comms64.png",
+		"icon":"graphics/icons/intel/comms64.png",
+		"image":"graphics/factions/SR_flag.png",
+		"sound":"ui_channel_news",
+		"faction":"SR",
+		"type":"News Report",
+		"shortType":"News",
+	},
+	"SR_internal":{
+		"name":"Internal Intelligence Program",
+		"logo":"graphics/icons/intel/comms64.png",
+		"icon":"graphics/icons/intel/comms64.png",
+		"image":"graphics/factions/SR_flag.png",
+		"sound":"ui_channel_comm_secure",
+		"faction":"SR",
+		"type":"Intelligence Report",
+		"shortType":"Intel",
+	},
+	
+	"UTFE_public":{
+		"name":"Public Broadcast",
+		"logo":"graphics/icons/intel/comms64.png",
+		"icon":"graphics/icons/intel/comms64.png",
+		"image":"graphics/factions/UTFE_flag.png",
+		"sound":"ui_channel_news",
+		"faction":"UTFE",
+		"type":"News Report",
+		"shortType":"News",
+	},
+	"UTFE_internal":{
+		"name":"Internal Intelligence Program",
+		"logo":"graphics/icons/intel/comms64.png",
+		"icon":"graphics/icons/intel/comms64.png",
+		"image":"graphics/factions/UTFE_flag.png",
+		"sound":"ui_channel_comm_secure",
+		"faction":"UTFE",
+		"type":"Intelligence Report",
+		"shortType":"Intel",
+	},
+}
+
+
+

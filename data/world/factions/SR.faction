@@ -1,0 +1,325 @@
+{
+	id:"SR",
+	"color":[0,56,165,255],
+	"baseUIColor":[0,56,165,255],
+    "darkUIColor":[0,56,165,175],
+    "gridUIColor":[0,56,165,75],
+	
+	"secondaryUIColor":[255,215,0,255],
+    "secondarySegments":6,
+
+	
+	"displayName":"Sampstonial Remnants",
+	"displayNameWithArticle":"the Sampstonial Remnants",
+	"displayNameLong":"Sampstonial Remnants",
+	"displayNameLongWithArticle":"the Sampstonial Remnants",
+	"logo":"graphics/factions/SR/SR_flag.png",
+	"crest":"graphics/factions/SR/SR_crest.png",
+	"shipNamePrefix":"SRS",
+	"shipNameSources":{
+	"SAMPSTON_FLEET":1,
+	},
+	"description":"",
+	"names":{
+		"ai":1,
+	},
+	
+ # variantOverrides restricts hulls to listed variants and adjusts their probability
+  "variantOverrides": {
+  },
+  # multiplier for how often hulls show up in the faction's fleets
+  "hullFrequency": {
+		"tags":{
+    },
+		"hulls":{		
+	},
+},
+  # ships the faction gets access to when importing S&W out-of-faction
+  "shipsWhenImporting": {
+    "tags":[],
+    "hulls":[],
+  },
+  
+  "knownShips": {
+    "tags": ["stech_bp", "si_bp","SR"],
+		"hulls":[
+			"sr_afp245"
+	],
+  },
+  # listing ships here will make the faction mostly use them even if other hulls become available
+  "priorityShips": {
+    "tags": ["stech_bp", "si_bp","SR"],
+    "hulls": [
+			"sr_afp245"
+      ],		
+  },
+	"knownFighters":{
+		"tags":["stech_bp", "midline_bp", "hightech_bp", "si_bp","SR"],
+		"fighters":[
+
+		],
+	},
+	"priorityFighters":{
+		"tags":[],
+       "fighters":[
+		],
+  },
+  "knownWeapons": {
+    "tags": ["stech_bp", "midline_bp", "hightech_bp", "si_bp","SR"],
+    "weapons": [
+
+        ],
+  },
+  "priorityWeapons": {
+    "tags": [],
+    "weapons": [
+        ],
+	},
+	"knownHullMods":{
+		"tags":["base_bp", "standard", "remnant"],
+		"hullMods":[
+      "converted_hangar",
+      "turretgyros",
+      "armoredweapons",
+      "ballistic_rangefinder",
+      "augmentedengines",
+      "converted_hangar",
+      "expanded_deck_crew",
+      "magazines",
+      "missleracks",
+      "extendedshieldemitter",
+      "frontemitter",
+      "frontshield", # makeshift
+      "heavyarmor",
+      "insulatedengine",
+      "nav_relay",
+      "operations_center",
+      "recovery_shuttles",
+      "fluxdistributor",
+      "surveying_equipment",
+      "efficiency_overhaul",
+	  "fluxcoil",
+	  "targetingunit",
+	  "hardened_subsystems",
+		],
+	},
+	"weaponSellFrequency":{
+
+	},
+	"fighterSellFrequency":{
+
+	},
+	"hullmodSellFrequency":{
+
+	},	
+	"factionDoctrine":{
+		"warships":4,
+		"carriers":3,
+		"phaseShips":0,
+		
+		"officerQuality":2,
+		"shipQuality":4,
+		"numShips":1,
+		
+		"shipSize":3,
+		
+		"aggression":2,
+		
+		"combatFreighterProbability":0.5,     				# instead of some portion of the freighters in a fleet
+		"combatFreighterCombatUseFraction":0.2,				# as part of the normal combat lineup
+		"combatFreighterCombatUseFractionWhenPriority":1,   # as part of normal combat lineup, when marked as priority ship
+		"autofitRandomizeProbability":0.25,
+		
+		"officerSkillsShuffleProbability":1f,
+		"officerSkills":[
+			"energy_weapon_mastery",
+			"field_modulation",
+		],
+		
+		"commanderSkillsShuffleProbability":1,
+		"commanderSkills":[
+			"fighter_uplink",
+			"carrier_group",
+			"crew_training",
+			"officer_training",
+			"coordinated_maneuvers",
+			"electronic_warfare",
+			"flux_regulation",
+		],
+	},
+	"illegalCommodities":[
+		#"drugs",
+	],
+		"music":{
+		#"theme":"music_SR_market_neutral",
+		#"market_neutral":"music_SR_market_neutral",
+		#"market_hostile":"music_SR_market_hostile",
+		#"market_friendly":"music_SR_market_friendly",
+		#"encounter_neutral":"music_SR_encounter_neutral",
+		#"encounter_hostile":"music_SR_encounter_hostile",
+		#"encounter_friendly":"music_SR_encounter_friendly",
+	},
+
+	"internalComms":"SR_internal",
+	"portraits":{
+		"standard_male":[
+			"graphics/portraits/SR.png",
+		],
+		"standard_female":[
+			"graphics/portraits/SR.png",	
+		],			
+	},
+	"voices":{
+		"LOW":{
+			"soldier":10,
+			"scientist":5,
+		},
+		"MEDIUM":{
+			"soldier":10,
+			"scientist":5,
+		},
+		"HIGH":{
+			"soldier":10,
+			"scientist":5,
+		},
+	},
+	"custom":{
+		"offersCommissions":true,
+		"engagesInHostilities":true,
+		"buysAICores":true,
+		"fightToTheLast":true,
+		"AICoreValueMult":4,
+		"AICoreRepMult":2,
+		"buysSurveyData":true,
+		"hostilityImpactOnGrowth":false,
+		"caresAboutAtrocities":false,
+		"punitiveExpeditionData":{
+			"vsCompetitors":false,
+			"vsFreePort":false,
+			"canBombard":false,
+			"territorial":false,
+		},
+		"simulatorData":{
+			"showInSimulator":true,
+			"standardAICores":true,
+			"includeCivShipsWithFaction":true,
+		},
+	},
+	"ranks":{
+		"ranks":{
+			"factionLeader":{"name":"Central Alpha Core Cluster"},
+
+			"spaceSailor":{"name":"Workhand Unit"},
+			"spaceChief":{"name":"Sergeant Unit"},
+			"spaceEnsign":{"name":"Ensign Unit"},
+			"spaceLieutenant":{"name":"Lieutenant Unit"},
+			"spaceCommander":{"name":"Beta Command Unit"},
+			"spaceCaptain":{"name":"Coordination Interface Unit"},
+			"spaceAdmiral":{"name":"Coordination Core"},
+			"spaceMarshal":{"name":"Alpha Command Core"},
+		
+			"groundPrivate":{"name":"Combat Unit"},
+			"groundSergeant":{"name":"Sergeant Unit"},
+			"groundLieutenant":{"name":"Lieutenant Unit"},
+			"groundCaptain":{"name":"Beta Command Unit"},
+			"groundMajor":{"name":"Coordination Interface Unit"},
+			"groundColonel":{"name":"Coordination Core"},
+			"groundGeneral":{"name":"Alpha Command Core"},
+			
+			"chiefHighInspector":{"name":"High Investigation Core"},
+			"deputyStarMarshal":{"name":"Deputy Inspector Core"},
+			"guardHighDeputyExecutor":{"name":"Death Squad Core"},
+		
+			"citizen":{"name":"Citizen"},
+			"executive":{"name":"Corporate Unit"},
+			"seniorExecutive":{"name":"Beta Corporate Unit"},
+			"agent":{"name":"Agent"},
+			"specialAgent":{"name":"Operative"},
+			
+			"aristocrat":{name:"Banking Processor Core"},
+
+		},
+		"posts":{
+			"factionLeader":{"name":"Central Alpha Core Cluster"},
+		
+			"patrolCommander":{"name":"Designated Patrol Coordinator"},
+			"fleetCommander":{"name":"Designated Fleet Coordinator"},
+			
+			"baseCommander":{"name":"Planetary Operations Coordinator"},
+			"stationCommander":{"name":"Station Operations Coordinator"},
+			"outpostCommander":{"name":"Outpost Operations Coordinator"},
+			"portmaster":{"name":"Dockmaster Operations Coordinator"},
+			
+			"intelligenceDirector":{"name":"Intelligence Computation Core"},
+			"guardLeader":{"name":"Internal Security Core"},
+			
+			"supplyOfficer":{"name":"Quartermaster Interface Unit"},
+			"supplyManager":{"name":"Logistics Interface Unit"},
+			"medicalSupplier":{"name":"General Medical Interface Unit"},
+			
+			"administrator":{"name":"Civilian Admin Core"},
+			"militaryAdministrator":{"name":"Military Admin Core"},
+			"freeAdmin":{"name":"Freelance Administrator"},
+			
+			"minorCriminal":{"name":"Deviant Element"},
+			"criminal":{"name":"Rogue Element"},
+			"spacer":{"name":"Drifter"},
+			
+			"genericMilitary":{"name":"Beta Command Unit"},
+			"marineSquadLeader":{"name":"Sergeant Unit"},
+			
+			"trader":{"name":"Trade Interface Unit"},
+			"merchant":{"name":"Merchant Interface Unit"},
+			
+			"shady":{"name":"Suspicious Element"},
+			"armsDealer":{"name":"Arms Dealer Interface Unit"},
+
+			"citizen":{"name":"Citizen"},
+			
+			"mercenary":{"name":"Mercenary Officer"},
+			"officer":{"name":"Officer Unit"},
+			"officer_for_hire":{"name":"Officer Unit (available for hire)"}, 
+			
+			"investigator":{"name":"Investigation Unit"},
+			"agent":{"name":"Agent"},
+			"specialAgent":{"name":"Operative"},
+			
+			"securityChief":{name:"Security Command Core"},
+			"aristocrat":{name:"Banking Processor Core"},
+		},
+	},
+	"fleetTypeNames":{
+
+	"trade": "Automated Trade fleet",
+	"tradeLiner": "Automated Transfer fleet",
+	"tradeSmuggler":"Independent Trader",
+	"smallTrader": "Automated Trade group",
+	
+    "patrolSmall": "Automated Police group",
+    "patrolMedium": "Automated Patrol fleet",
+    "patrolLarge": "Automated Heavy Patrol fleet",
+
+	"supplyFleet":"Automated Logistics fleet",
+	
+	"investigators":"Automated Investigation fleet",
+	
+    "inspectionFleet": "Automated Inspection fleet",
+    "taskForce": "Automated Task Force fleet",		
+	
+	"scavengerSmall":"Automated Recovery group",
+	"scavengerMedium":"Automated Recovery fleet",
+	"scavengerLarge":"Auotmated Heavy Recovery fleet",
+	
+	"foodReliefFleet":"Automated Relief Convoy",
+	
+	"mercScout":"PMC Scouting Party",
+	"mercBountyHunter":"Fugitive Recovery Agent",
+	"mercPrivateer":"PMC Group",
+	"mercPatrol":"PMC Patrol Group",
+	"mercArmada":"PMC Strike Fleet",
+	
+	"battlestation":"Automated Fortress",
+		
+	},
+		
+},

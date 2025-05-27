@@ -1,0 +1,32 @@
+{
+  "variantId": "et_contractor_pursuit",
+  "hullId": "et_contractor",
+  "displayName": "Pursuit",
+  "goalVariant": true,
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "heavy_mass_driver",
+        "WS0002": "heavy_mass_driver",
+        "WS0003": "pdburst",
+        "WS0004": "lightdualmg",
+        "WS0005": "lightdualmg",
+        "WS0006": "typhoon",
+        "WS0007": "typhoon",
+        "WS0008": "heatseeker",
+        "WS0009": "heatseeker"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": [
+    "thunder_wing"
+  ]
+}

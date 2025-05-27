@@ -1,0 +1,6 @@
+name,id,tags,tech/manufacturer,rarity,base price,stack size,cargo space,baseRaidDanger,icon,sound id,sound id drop,plugin,plugin params,desc,order
+#Blueprint,,,,,,,,,,,,,,,
+Sampstonial Technologies Blueprints,stech_package,package_bp,,,50000,1000,1,,graphics/icons/cargo/blueprint_midline.png,ui_chip_pickup,ui_chip_pickup,com.fs.starfarer.api.campaign.impl.items.MultiBlueprintItemPlugin,stech_bp,STech Blueprints,2500
+Sampstonial Industries Blueprints,si_package,package_bp,,,50000,1000,1,,graphics/icons/cargo/blueprint_midline.png,ui_chip_pickup,ui_chip_pickup,com.fs.starfarer.api.campaign.impl.items.MultiBlueprintItemPlugin,si_bp,SI Blueprints,2500
+,,,,,,,,,,,,,,,
+Eirin-Sahl Dynamics Blueprint Package,esd_package,package_bp,,,25000,1000,1,,graphics/icons/cargo/blueprint_midline.png,ui_chip_pickup,ui_chip_pickup,com.fs.starfarer.api.campaign.impl.items.MultiBlueprintItemPlugin,esd_bp,"ESD Blueprints, Ships",3000

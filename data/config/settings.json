@@ -1,0 +1,13 @@
+{
+	"designTypeColors":{
+		"SR":[0,56,165,200],
+    	},
+	"graphics":{
+			
+		"blueprint_packages":{
+			"stech_package":"graphics/icons/cargo/blueprint_sr.png",
+			"si_package":"graphics/icons/cargo/blueprint_sr.png",
+			"esd_package":"graphics/icons/cargo/blueprint_esd.png",
+		},
+	}
+}

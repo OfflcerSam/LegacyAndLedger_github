@@ -1,0 +1,20 @@
+{
+	#WeaponSounds
+	"sr_gun":[
+		{"file":"sounds/sfx_wpn_guns/30cal_fire_1.ogg","pitch":1.0,"volume":0.1},
+		{"file":"sounds/sfx_wpn_guns/30cal_fire_2.ogg","pitch":1.0,"volume":0.1},
+		{"file":"sounds/sfx_wpn_guns/30cal_fire_3.ogg","pitch":1.0,"volume":0.1},
+	],
+
+	
+}
+
+
+
+
+
+
+
+
+
+

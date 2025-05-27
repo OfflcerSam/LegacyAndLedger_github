@@ -1,0 +1,40 @@
+{
+  "variantId": "sr_afp245_patrol",
+  "hullId": "sr_afp245",
+  "displayName": "Patrol",
+  "goalVariant": true,
+  "fluxCapacitors": 10,
+  "fluxVents": 10,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [
+    "pointdefenseai",
+    "blast_doors",
+    "armoredweapons",
+    "ecm"
+  ],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "Front": "minipulser",
+        "WS0001": "irpulse",
+        "WS0002": "irpulse",
+        "WS0003": "pdburst"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {}
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {}
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

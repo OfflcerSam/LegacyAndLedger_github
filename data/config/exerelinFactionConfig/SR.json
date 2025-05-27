@@ -1,0 +1,104 @@
+{
+    "playableFaction":true,
+    "corvusCompatible":true,
+    
+    "rebelFleetSuffix":"Rogue Drones",
+    
+    "marketSpawnWeight":0.8,
+
+	"startRelationships":{
+		"independent":0.1,
+		"pirates":-5.0,
+		"tritachyon":0.0,
+		"hegemony":-0.3,
+		"luddic_church":-0.5,	
+		"luddic_path":-1.0,
+		"persean":0.1,
+		"lions_guard":-0.1,			
+	    "sindrian_diktat":-0.1,	
+		"remnant":0.2,
+	},
+	
+    "maxRelationships":{ "luddic_path":-0.8, "luddic_church":-0.1, "pirates":-0.8, },
+	"minRelationships":{ "remnant":-0.2,},
+    #"diplomacyPositiveChance":{ "persean":0.8, "hegemony": 0.4 },
+   # "diplomacyNegativeChance":{ "luddic_path":1.5, "luddic_church":0.9 },
+    #"dispositions":{
+    #    "persean": -10,
+    #    "sindrian_diktat": -10,
+    #},
+    
+	"alignments":{
+		"corporate":-0.2,
+		"technocratic":0.3,
+		"militarist":0.0,
+		"diplomatic":0.3,
+		"ideological":0.2,
+	},
+	"diplomacyTraits":["stalwart", "likes_ai", "pacifist", "neutralist", "helps_allies"],
+    
+    # chance of the faction being picked to send a colony expedition. Default 0 (disabled)
+    "colonyExpeditionChance":0.8,	# baseline expansion behaviour
+    "colonyTargetValuator":"exerelin.campaign.colony.IndustrialColonyTargetValuator",
+    
+    "groundBattleSettings":{
+        "moraleDamageTakenMult":0.25,
+    },
+    
+    #"specialForcesNamerClass":"exerelin.campaign.intel.specialforces.namer.PlanetNamer",
+    #"specialForcesFlagshipVariants":{ "paragon_Elite":1, "astral_Strike":0.5 },
+    
+	# Number of entries must equal number of vengeance tiers (0-3)
+	"vengeanceLevelNames":["Retaliation Protocol", "Counterattack Protocol", "Death Squad Deployment"],
+	"vengeanceFleetNamesSingle":["Retaliation group", "Counterattack group", "Death Squad group"],
+	"vengeanceFleetNames":["Retaliation fleet", "Counterattack fleet", "Death Squad fleet"],
+	"vengeanceFleetSizeMult":2.0,
+	
+	
+	"asteroidMiningFleetName":"Automated Mining Fleet",
+	"invasionFleetname":"Automated Invasion Fleet",
+	"invasionSupportFleetname":"Automated Invasion Support Fleet",
+	"responseFleetname":"Automated Response Fleet",
+	"defenceFleetname":"Automated Defence Fleet",
+	"suppressionFleetname":"Automated Police Support Fleet",
+
+	
+    "startShipsSolo":[
+	  ["sr_afp245_patrol"],
+	  ["sr_afp245_patrol"]
+	],
+   # "startShipsCombatSmall":[
+    #  ["", "", ""],
+    #  ["", "", ""]
+    #],
+   # "startShipsTradeSmall":[["", "", ""]],
+   # "startShipsCombatLarge":[
+   #   ["", "", ""],
+   #   ["", "", ""]
+   # ],
+   # "startShipsTradeLarge":[["", "", ""]],
+   # "startShipsExplorerLarge":[["", "", ""]],
+   # "startShipsCarrierSmall":[["", "", ""]],
+   # "startShipsCarrierLarge":[["", "", ""]],
+    #"startShipsGrandFleet":[[""]],
+    
+	"startSpecialItems":[
+        [["stech_package",""],["si_package",""]]
+    ],
+    
+    "defenceStations":[
+        {"ids":["orbitalstation_mid", "battlestation_mid", "starfortress_mid"]},
+        {"ids":["orbitalstation_high", "battlestation_high", "starfortress_high"], "weight":0.6},
+    ],
+    
+    "industrySeeds":[
+        {"id":"orbitalworks", "mult":0.8},
+        {"id":"fuelprod", "mult":1.0},
+        {"id":"lightindustry", "mult":0.8},
+    ],
+    
+    "bonusSeeds":[
+        {"id":"nanoforge_pristine", "count":1},
+        {"id":"aiCore_any", "count":4, "mult":1.5},
+    ],
+}

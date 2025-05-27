@@ -1,0 +1,102 @@
+{
+    "playableFaction":true,
+    "corvusCompatible":true,
+    
+    "rebelFleetSuffix":"Separatist",
+    
+    "marketSpawnWeight":3,
+
+	"startRelationships":{
+		"independent":0.8,
+		"pirates":-1.0,
+		"tritachyon":0.4,
+		"hegemony":-0.1,
+		"luddic_church":-0.3,	
+		"luddic_path":-1.0,
+		"persean": 0.4,
+		"lions_guard":-0.2,			
+	    "sindrian_diktat":-0.2,	
+		"remnant":-0.4,		
+	},
+    "maxRelationships":{ "luddic_path":-0.6, "luddic_church":0.0, "pirates":-0.9, },
+    "diplomacyPositiveChance":{ "persean":0.4, "hegemony": 0.4 },
+    "diplomacyNegativeChance":{ "luddic_path":1.5, "luddic_church":0.9 },
+    #"dispositions":{
+    #    "persean": -10,
+    #    "sindrian_diktat": -10,
+    #},
+    
+	"alignments":{
+		"corporate":0.5,
+		"technocratic":0.25,
+		"militarist":0.4,
+		"diplomatic":0.3,
+		"ideological":0.1,
+	},
+	"diplomacyTraits":["monopolist", "anarchistic", "neutralist"],
+    
+    # chance of the faction being picked to send a colony expedition. Default 0 (disabled)
+    "colonyExpeditionChance":1,	# baseline expansion behaviour
+    "colonyTargetValuator":"exerelin.campaign.colony.IndustrialColonyTargetValuator",
+    
+    "groundBattleSettings":{
+        "moraleDamageTakenMult":1,
+    },
+    
+    #"specialForcesNamerClass":"exerelin.campaign.intel.specialforces.namer.PlanetNamer",
+    #"specialForcesFlagshipVariants":{ "paragon_Elite":1, "astral_Strike":0.5 },
+    
+	# Number of entries must equal number of vengeance tiers (0-3)
+	"vengeanceLevelNames":["Red Notice", "Stabilization Protocal", "Threat Suppression"],
+	"vengeanceFleetNamesSingle":["UTFE Compliance Detachment", "UTFE Containment Detachment", "UTFE Retaliation Detachment"],
+	"vengeanceFleetNames":["UTFE Compliance Fleet", "UTFE Containment Flotilla", "UTFE Retaliation Armada"],
+	"vengeanceFleetSizeMult":1.7,
+	
+	
+	"asteroidMiningFleetName":"UTFE Extraction Operation",
+	"invasionFleetname":"UTFE Asset Seizure Fleet",
+	"invasionSupportFleetname":"UTFE Asset Seizure Escort",
+	"responseFleetname":"UTFE Market Defense Fleet",
+	"defenceFleetname":"UTFE Asset Protection Flotilla",
+	"suppressionFleetname":"UTFE Stabilization Fleet",
+
+	
+    "startShipsSolo":[
+	  ["et_contractor_pursuit"]
+	],
+    "startShipsCombatSmall":[
+      ["ot_M2a4Light_Hull_standard", "ot_M2a2Light_Hull_standard", "ot_M2a2Light_Hull_screen"],
+      ["ot_M2Medium_Hull_standard", "ot_M2a4Light_Hull_standard", "ot_M2a4Light_Hull_standard"]
+    ],
+    "startShipsTradeSmall":[["ot_fuel_truck_defender", "ot_supply_truck_defender", "ot_M2a4Light_Hull_screen"]],
+    "startShipsCombatLarge":[
+      ["ot_M4Jumbo_Hull_standard", "ot_M4Sherman_Hull_upgun", "ot_M4Sherman_Hull_standard"],
+      ["ot_M26Pershing_Hull_standard", "ot_M4Sherman_Hull_upgun", "ot_M3Lee_Hull_standard"]
+    ],
+    "startShipsTradeLarge":[["ot_armored_train_standard", "ot_supply_truck_defender", "ot_supply_truck_defender"]],
+    "startShipsExplorerLarge":[["ot_armored_train_standard", "ot_M2Medium_Hull_standard", "ot_M2Medium_Hull_standard"]],
+    "startShipsCarrierSmall":[["ot_supply_truck_standard", "ot_supply_truck_standard", "ot_supply_truck_standard"]],
+    "startShipsCarrierLarge":[["ot_armored_train_standard", "ot_supply_truck_standard", "ot_supply_truck_standard"]],
+    #"startShipsGrandFleet":[[""]],
+    
+	"startSpecialItems":[
+        [["esd_package",""]],		
+    ],
+    
+    "defenceStations":[
+        {"ids":["orbitalstation", "battlestation", "starfortress"]},
+        {"ids":["orbitalstation_mid", "battlestation_mid", "starfortress_mid"], "weight":0.6},
+    ],
+    
+    "industrySeeds":[
+        {"id":"orbitalworks", "mult":0.8},
+        {"id":"fuelprod", "mult":1.2},
+        {"id":"lightindustry", "mult":0.8},
+    ],
+    
+    "bonusSeeds":[
+        {"id":"population_upsize", "count":1, "mult":1.2},
+        {"id":"nanoforge_pristine", "count":1},
+        {"id":"aiCore_any", "count":1, "mult":1.5},
+    ],
+}
