@@ -164,9 +164,13 @@
 	"portraits":{
 		"standard_male":[
 			"graphics/portraits/SR.png",
+			"graphics/portraits/potrait_corporate06.png",
+			"graphics/portraits/potrait_ai2.png",
 		],
 		"standard_female":[
-			"graphics/portraits/SR.png",	
+			"graphics/portraits/SR.png",
+			"graphics/portraits/potrait_corporate06.png",
+			"graphics/portraits/potrait_ai2b.png",
 		],			
 	},
 	"voices":{
