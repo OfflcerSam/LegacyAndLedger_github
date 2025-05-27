@@ -62,7 +62,7 @@ public class SR_OrionPoint {
                 "inner_jump",
                 "Inner System Jump");
 
-        jumpPoint_inner.setCircularOrbit(system.getEntityById("OrionPoint"), 360 * (float) Math.random(), jumpInnerDist, 4000f);
+        jumpPoint_inner.setCircularOrbit(system.getEntityById("s_OrionPoint"), 360 * (float) Math.random(), jumpInnerDist, 4000f);
         jumpPoint_inner.setStandardWormholeToHyperspaceVisual();
 
         system.addEntity(jumpPoint_inner);
@@ -72,7 +72,7 @@ public class SR_OrionPoint {
                 "outer_jump",
                 "Outer System Jump");
 
-        jumpPoint_outer.setCircularOrbit(system.getEntityById("OrionPoint"), 360 * (float) Math.random(), jumpOuterDist, 2000f);
+        jumpPoint_outer.setCircularOrbit(system.getEntityById("s_OrionPoint"), 360 * (float) Math.random(), jumpOuterDist, 2000f);
         jumpPoint_outer.setStandardWormholeToHyperspaceVisual();
 
         system.addEntity(jumpPoint_outer);
@@ -82,7 +82,7 @@ public class SR_OrionPoint {
                 "fringe_jump",
                 "Fringe System Jump");
 
-        jumpPoint_fringe.setCircularOrbit(system.getEntityById("OrionPoint"), 360 * (float) Math.random(), jumpFringeDist, 6000f);
+        jumpPoint_fringe.setCircularOrbit(system.getEntityById("s_OrionPoint"), 360 * (float) Math.random(), jumpFringeDist, 6000f);
         jumpPoint_fringe.setStandardWormholeToHyperspaceVisual();
 
         system.addEntity(jumpPoint_fringe);
