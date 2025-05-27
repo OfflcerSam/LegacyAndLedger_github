@@ -213,17 +213,17 @@ FireAll PopulateOptions","After a short wait, your connection request is accepte
 OR
 After a short wait, your connection request is accepted.
 
-""$Post has acccepted comms, $PlayerName, please input your request.""",,
+""$Post has accepted comms, $PlayerName, please input your request.""",,
 convDefaultGreeting2SAIC,PickGreeting,"$contact_printedFirstReturnGreeting
 $voice == SAIC","ShowPersonVisual
-FireAll PopulateOptions","""$Post has acccepted comms, $PlayerName, please input your request.""",,
+FireAll PopulateOptions","""$Post has accepted comms, $PlayerName, please input your request.""",,
 #convPlayerKnowsTJGreetingSAIC,PickGreeting,"!$contact_printedFirstReturnGreeting
 $voice == SAIC","$reactedPlayerKnowsTJ = true 90
 $contact_printedFirstReturnGreeting = true 0
 ShowPersonVisual
 FireAll PopulateOptions","After a short wait, your connection request is accepted.
 
-""$Post has acccepted comms, $PlayerName, please hold.""
+""$Post has accepted comms, $PlayerName, please hold.""
 
 ""Your $shipOrFleet identified with anomalous hyperspace maneuvers. No further action.""
 
