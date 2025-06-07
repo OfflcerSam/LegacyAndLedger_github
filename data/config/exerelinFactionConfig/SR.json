@@ -64,13 +64,13 @@
 
 	
     "startShipsSolo":[
-	  ["sr_afp245_patrol"],
-	  ["sr_afp245_patrol"]
+	  ["sr_beetle_standard"],
+	  ["sr_beetle_standard"]
 	],
-   # "startShipsCombatSmall":[
-    #  ["", "", ""],
-    #  ["", "", ""]
-    #],
+    "startShipsCombatSmall":[
+      ["sr_beetle_standard", "sr_arrowhead_patrol", "sr_arrowhead_patrol"],
+      ["sr_beetle_standard", "sr_arrowhead_patrol", "sr_arrowhead_patrol"]
+    ],
    # "startShipsTradeSmall":[["", "", ""]],
    # "startShipsCombatLarge":[
    #   ["", "", ""],
@@ -83,7 +83,8 @@
     #"startShipsGrandFleet":[[""]],
     
 	"startSpecialItems":[
-        [["stech_package",""],["si_package",""]]
+        [["stech_package",""]],
+		[["si_package",""]]
     ],
     
     "defenceStations":[

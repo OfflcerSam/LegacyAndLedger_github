@@ -1,6 +1,6 @@
 {
-  "variantId": "sr_afp245_patrol",
-  "hullId": "sr_afp245",
+  "variantId": "sr_arrowhead_patrol",
+  "hullId": "sr_arrowhead",
   "displayName": "Patrol",
   "goalVariant": true,
   "fluxCapacitors": 10,

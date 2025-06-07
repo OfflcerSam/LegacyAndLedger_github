@@ -41,42 +41,47 @@
   },
   
   "knownShips": {
-    "tags": ["stech_bp", "si_bp","SR"],
+    "tags": ["stech_bp", "si_bp","SRR"],
 		"hulls":[
-			"sr_afp245"
+			"sr_arrowhead",
+			"sr_beetle",
 	],
   },
   # listing ships here will make the faction mostly use them even if other hulls become available
   "priorityShips": {
-    "tags": ["stech_bp", "si_bp","SR"],
+    "tags": ["stech_bp", "si_bp", "SRR"],
     "hulls": [
-			"sr_afp245"
+			"sr_arrowhead",
+			"sr_beetle",
       ],		
   },
 	"knownFighters":{
-		"tags":["stech_bp", "midline_bp", "hightech_bp", "si_bp","SR"],
+		"tags":["stech_bp", "midline_bp", "hightech_bp", "si_bp", "SRR"],
 		"fighters":[
 
 		],
 	},
 	"priorityFighters":{
-		"tags":["stech_bp", "midline_bp", "hightech_bp", "si_bp","SR"],
+		"tags":["stech_bp", "midline_bp", "hightech_bp", "si_bp", "SRR"],
        "fighters":[
 		],
   },
   "knownWeapons": {
-    "tags": ["stech_bp", "midline_bp", "hightech_bp", "si_bp","SR"],
+    "tags": ["stech_bp", "midline_bp", "hightech_bp", "si_bp", "SRR"],
     "weapons": [
+				"sr_pulsebeamer",
+				"sr_pulseburster",
+				"sr_pulseblaster",
 
         ],
   },
   "priorityWeapons": {
-    "tags": ["stech_bp", "midline_bp", "hightech_bp", "si_bp","SR"],
+    "tags": ["stech_bp", "midline_bp", "hightech_bp", "si_bp","SRR"],
     "weapons": [
         ],
 	},
 	"knownHullMods":{
-		"tags":["base_bp", "standard", "remnant"],
+		"tags":["base_bp", "midline_bp", "hightech_bp", "standard", "remnant"],
 		"hullMods":[
       "converted_hangar",
       "turretgyros",

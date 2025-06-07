@@ -6,7 +6,7 @@
 	},
 	"combatSmall":{
 			"et_contractor_pursuit":20,
-			"sr_afp245_patrol":20,
+			"sr_arrowhead_patrol":20,
 			"et_resolver_heavy":10,
 	},
 	"combatMedium":{
@@ -24,7 +24,7 @@
 	
 	# hybrid ships with good combat and cargo capacity
 	"combatFreighterSmall":{
-			
+			"on_lst_support":2,
 	},
 	"combatFreighterMedium":{
 
@@ -46,10 +46,16 @@
 
 	# phase ships
 	"phaseSmall":{
+
 	},
-	"personnelSmall":{	
-	},		
-	"personnelMedium":{
+	"phaseMedium":{
+
+	},
+	"phaseLarge":{
+
+	},
+	"phaseCapital":{
+
 	},
 	
 	# utility ships
@@ -60,20 +66,21 @@
 	"utility":{
 	},
 	"civilianRandom":{
+
 	},
 	
-	# freighters and such
+	# freighters
 	"freighterSmall":{
 
 	},
 	"freighterMedium":{
-
 
 	},
 	"freighterLarge":{
 		
 	},
 	
+	#tankers
 	"tankerSmall":{
 
 	},
@@ -84,5 +91,27 @@
 		
 	},
 	
+	#liner
+	"linerSmall":{
+
+	},
+	"linerMedium":{
+
+	},
+	"linerLarge":{
+
+	},
+	
+	#personnel
+	"personnelSmall":{
+
+	},
+	"personnelMedium":{
+
+	},
+	"personnelLarge":{
+
+	},
+
 	
 }

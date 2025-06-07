@@ -18,11 +18,18 @@ Its signature design philosophy—function over comfort—has earned it a reputa
 ,,,,,
 ,,,,,
 #Sampston Ships,,,,,
-sr_afp245,SHIP,Known as an Arrowhead by some.,,,
+sr_arrowhead,SHIP,"Pattern 245, Automated Frigate. Developed by Sampstonial Technologies originally a couple hundred years ago, the design has been iterated upon by advanced design algorithms and AI tweaking turning it from a bulky frigate to a sleeker automated frigate.
+
+The AI designers gutted all human required bits but kept some interfacing ability, allowing for it's compact yet armored design.",,,
+sr_beetle,SHIP,"Pattern 341, Command Frigate. Developed by Sampstonial Technologies within the last hundred years, the design has been slightly iterated upon by advanced design algorithms and AI tweaking turning it from a heavy and slow command destroyer, to a sleek semi-automated frigate. 
+
+The AI of course kept the human required bits to allow for human interfacing to nearby automated ships and decent self-defense capabilities. Or if you want, just a nice smooth ride, this can also be modified more thanks to it's modularity to be more luxurious.",,,
+,,,,,
 ,,,,,
 # WEAPONS,,,,,
-,,,,,
-,,,,,
+sr_pulsebeamer,WEAPON,Pulse Beam,,,
+sr_pulseburster,WEAPON,Pulse Burst Cannon,,,
+sr_pulseblaster,WEAPON,Pulse Cannon,,,
 ,,,,,
 # WINGS,,,,,
 ,,,,,

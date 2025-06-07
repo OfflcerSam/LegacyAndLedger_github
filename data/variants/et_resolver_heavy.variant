@@ -13,36 +13,35 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "MMissileL": "sabot",
-        "MMissileL2": "sabot",
-        "MMissileR2": "sabot",
-        "MMountR": "sabot",
-        "WS0001": "heavy_mass_driver",
-        "WS0002": "heavy_mass_driver"
+        "FC1": "heavy_mass_driver",
+        "WS0001": "swarmer",
+        "WS0002": "swarmer"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0003": "light_mass_driver",
-        "WS0004": "light_mass_driver"
+        "FL1": "light_mass_driver",
+        "FR1": "light_mass_driver"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0005": "pdburst",
-        "WS0006": "pdburst"
+        "ML1": "swarmer",
+        "MR1": "swarmer"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0007": "pdburst",
-        "WS0008": "pdburst"
+        "CL1": "pdburst",
+        "CR2": "pdburst",
+        "RL1": "pdburst",
+        "RR1": "pdburst"
       }
     },
     {
