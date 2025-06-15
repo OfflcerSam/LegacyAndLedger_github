@@ -33,6 +33,337 @@ FireAll PopulateOptions","Garbled but robotic static is heard before it clears u
 OR
 Weird static is heard before it clears up then: ""Signal confirmed. $shipOrFleet. $playerName. You are greeted by this $PersonRank.""",,
 ,,,,,,
+# Sampston patrol stopping player w/ transponder off,,,,,,
+tOffPatrolBegin_Sampston,BeginFleetEncounter,"CaresAboutTransponder
+$faction.id == SR
+!$tOff_didAlready
+!$isHostile
+!$faction.c:allowsTransponderOffTrade
+!$sourceMarket.mc:free_market
+$isPatrol
+$sawPlayerTransponderOff score:100","$tOff_didAlready = true 0
+#MakeOtherFleetPreventDisengage tOff true
+MakeOtherFleetAggressive tOff false
+unset $ignorePlayerCommRequests
+$sawPlayerWithTOffCount++ 10
+$transponderOffConv = true 0
+AddText ""You're being hailed by the $faction $otherShipOrFleet."" $faction.baseColor
+OpenComms",,,
+tOffPatrolBeginNoTalk_Sampston,BeginFleetEncounter,"CaresAboutTransponder
+$faction.id == SR
+!$tOff_didAlready
+!$isHostile
+!$faction.c:allowsTransponderOffTrade
+!$sourceMarket.mc:free_market
+$isPatrol
+$sawPlayerTransponderOff score:100
+$sawPlayerWithTOffCount > 1 score:100","$tOff_didAlready = true 0
+#MakeOtherFleetPreventDisengage tOff true
+MakeOtherFleetAggressive tOff false
+MakeHostileWhileTOff tOff true 7
+$sawPlayerWithTOffCount++ 10
+$ignorePlayerCommRequests = true 0",,,
+tOffPatrolOpenComm_Sampston,OpenCommLink,"!$entity.patrolAllowTOff
+$entity.transponderOffConv score:100
+$faction.id == SR","AddText ""\""Unknown $shipOrFleet, identification required. Disabled transponder in $faction space is against regulation. $shipOrFleet must enable transponder and comply with cargo scan.\""""
+AdjustRep $faction.id TRANSPONDER_OFF
+AdjustRepActivePerson TRANSPONDER_OFF
+SetStoryOption avoid_scan 1 avoidCargoScan ui_char_spent_story_point ""Talked your way out of a cargo scan""",,"0:tOff_comply_Sampston:Turn the transponder on and comply
+1:avoid_scan_Sampston:Talk your way out of it
+2:tOff_refuse_Sampston:Refuse and cut the comm link",
+tOffPatrolOpenCommUnknown_Sampston,OpenCommLink,"!$entity.patrolAllowTOff
+$entity.transponderOffConv score:100
+!$entity.knowsWhoPlayerIs
+$faction.id == SR","AddText ""\""Unknown $shipOrFleet, identification required. Disabled transponder in $faction space is against regulation. $shipOrFleet must enable transponder and comply with cargo scan.\""""
+AdjustRep $faction.id TRANSPONDER_OFF
+AdjustRepActivePerson TRANSPONDER_OFF
+SetStoryOption avoid_scan 1 avoidCargoScan ui_char_spent_story_point ""Talked your way out of a cargo scan""",,"0:tOff_comply_Sampston:Turn the transponder on and comply
+1:avoid_scan_Sampston:Talk your way out of it
+2:tOff_refuse_Sampston:Refuse and cut the comm link",
+tOffPatrolOpenCommTOn_Sampston,OpenCommLink,"!$entity.patrolAllowTOff
+$entity.transponderOffConv score:100
+$player.transponderOn
+$faction.id == SR","AddText ""\""Disabled transponder in $faction space is against regulation, despite re-enabling, suspicion raised. $shipOrFleet must comply with cargo scan as per regulation.\""""
+AdjustRep $faction.id TRANSPONDER_OFF
+AdjustRepActivePerson TRANSPONDER_OFF
+SetStoryOption avoid_scan 1 avoidCargoScan ui_char_spent_story_point ""Talked your way out of a cargo scan""",,"0:tOff_comply2_Sampston:Allow the scan
+1:avoid_scan_Sampston:Talk your way out of it
+2:tOff_refuse_Sampston:Refuse and cut the comm link",
+tOffPatrolOpenCommNotFirstTime_Sampston,OpenCommLink,"!$entity.patrolAllowTOff
+$entity.transponderOffConv score:100
+$entity.sawPlayerWithTOffCount == 2.0 score:10
+$entity.relativeStrength >= 0","AddText""\""You have already been warned to keep transponder enabled.\""""
+AdjustRep $faction.id TRANSPONDER_OFF
+AdjustRepActivePerson TRANSPONDER_OFF
+AddText ""The comm link is cut before you have a chance to respond.""
+$entity.ignorePlayerCommRequests = true 0
+unset $entity.transponderOffConv
+#MakeHostileWhileTOff tOff true 7
+MakeOtherFleetHostile tOff true 7",,"#0:tOff_notFirstTimeCont:Continue
+cutCommLinkNoText:Continue",
+scanTalkYourWayOut_Sampston,DialogOptionSelected,$option == avoid_scan_Sampston,"SetNearbyFleetsVariable 5000 $faction.id $patrolAllowTOff true 10
+$entity.patrolAllowTOff = true 10
+BroadcastCancelPlayerAction 5000 $sawPlayerTransponderOff
+MakeOtherFleetPreventDisengage cargoScan false
+MakeOtherFleetAggressive cargoScan false
+MakeOtherFleetAggressive tOff false
+MakeOtherFleetPreventDisengage tOff false
+$entity.sawPlayerWithTOffCount = 0
+unset $entity.pursuePlayer_smugglingScan
+unset $entity.cargoScanConv
+$entity.smugglingScanComplete = true 1
+ShowDefaultVisual
+EndConversation","You manage to make a convincing logic loop, the $PersonRank makes robotic tones before letting you off.
+OR
+You somehow managed to question the situation enough that the $PersonRank seemed annoyed, as a result they let you off.",,
+#tOffPatrolOpenCommNotFirstTimeCont,DialogOptionSelected,$option == tOff_notFirstTimeCont_Sampston,"MakeHostileWhileTOff tOff true 7
+ShowDefaultVisual
+EndConversation",,,
+tOffComply_Sampston,DialogOptionSelected,$option == tOff_comply_Sampston,"unset $entity.transponderOffConv
+unset $entity.sawPlayerTransponderOff
+ActivateAbility $player.fleetId transponder
+UpdateMemory",You issue an order to activate the transponder and wait for the cargo scan to finish.,0:tOff_scan_continue_Sampston:Continue,
+tOffComply2_Sampston,DialogOptionSelected,$option == tOff_comply2_Sampston,"unset $entity.transponderOffConv
+unset $entity.sawPlayerTransponderOff",You wait for the cargo scan to finish.,0:tOff_scan_continue_Sampston:Continue,
+tOffCargoScan_Sampston,DialogOptionSelected,$option == tOff_scan_continue_Sampston,"AddText ""After a brief wait, the $faction $otherFleetName transmits the scan results.""
+CargoScan
+FireBest TOffScanResult",,,
+tOffCargoScanHostile_Sampston,DialogOptionSelected,"$option == tOff_scan_continue_Sampston
+$entity.isHostile","ShowDefaultVisual
+EndConversation","However, instead of proceeding with the scan, the $faction $fleetName shuts down comms and powers up combat systems.",,
+tOffCargoScanHostileStronger_Sampston,DialogOptionSelected,"$option == tOff_scan_continue_Sampston
+$entity.isHostile
+$entity.relativeStrength < 0","MakeOtherFleetAggressive tOff false
+MakeOtherFleetPreventDisengage tOff false
+ShowDefaultVisual
+EndConversation","However, instead of proceeding with the scan, the $faction $fleetName shuts down comms and powers up combat systems.",,
+tOffCargoScanPods_Sampston,TOffScanResult,$scan_podsFound score:1000,unset $scan_podsFound,"The $faction $personRank pauses and looks off-screen.
+
+""Drifting cargo pods detected nearby, contents illegal. Those will be confiscated, good day.""",0:tOff_podsCont_Sampston:Continue,
+tOffCargoScanPodsCont_Sampston,DialogOptionSelected,$option == tOff_podsCont_Sampston,FireBest TOffScanResult,,,
+tOffCargoScanClean_Sampston,TOffScanResult,"!$scan_contrabandFound
+!$scan_suspiciousCargoFound","Highlight ""transponder""","$PersonRank $personName looks vaguely displeased.
+
+""Do not have transponder disabled again, good day.""
+
+The comm link is cut before you have a chance to respond.",0:tOff_cleanCont1_Sampston:Continue,
+#tOffCargoScanSuspicious_Sampston,TOffScanResult,$scan_suspiciousCargoFound,,"While the scan finds no overt contraband, the quantity of cargo found, combined with indirect evidence of your prior black market activities, is enough to raise suspicions.
+
+It is not, however, enough to do anything about. Correspondingly, $personRank $personName looks displeased.
+
+""I'll see you again, you can be sure of it,"" $heOrShe grinds out before cutting the comm link.",0:tOff_cleanCont1_Sampston:Continue,
+tOffCargoScanBoarding1_Sampston,TOffScanResult,$scan_suspiciousCargoFound,,"The scan finds no overt contraband, but there is enough suspicion of your involvement in black market activities that the patrol commander is not appeased by this.
+
+""$shipOrFleet will recieve boarding party for further inspection.""
+
+You consider it very likely the inspectors will do some small - but just borderline excusable - damage to the combat worthiness of your ships during the course of this ""thorough"" inspection.","0:tOff_comply_boarding_Sampston:Comply and prepare for an inspection
+1:tOff_refuse_Sampston:Refuse and cut the comm link",
+tOffCargoScanBoarding2_Sampston,DialogOptionSelected,$option == tOff_comply_boarding_Sampston,"CargoScanApplyResult $scan_cargoScanResult
+MakeOtherFleetPreventDisengage tOff false
+BroadcastCancelPlayerAction 5000 $sawPlayerTransponderOff
+$sourceMarket.smugglingScanTimeout = true 30","As you'd half-expected, several of your ships report minor but painful losses of operational capability. Fortunately, the inspectors seemed to be more interested in causing ""accidental"" damage than looking for actual contraband, so no objectionable cargo was found.",cutCommLinkNoText:Continue,
+tOffCargoScanClean2_Sampston,DialogOptionSelected,$option == tOff_cleanCont1_Sampston,"MakeOtherFleetPreventDisengage tOff false
+BroadcastCancelPlayerAction 5000 $sawPlayerTransponderOff
+ShowDefaultVisual
+EndConversation NO_CONTINUE
+$sourceMarket.smugglingScanTimeout = true 30",,,
+tOffCargoScanContraband_Sampston,TOffScanResult,$scan_contrabandFound score:10,,"""Contraband identified. Per %faction procedure you are ordered to eject contraband or surrender it for incineration.""
+
+$PersonRank continues to look at you.","0:tOff_comply_contraband_Sampston:Surrender the contraband and cut the comm link
+1:tOff_refuse_Sampston:Refuse and cut the comm link",
+tOffCargoScanContrabandSurrender_Sampston,DialogOptionSelected,$option == tOff_comply_contraband_Sampston,"CargoScanApplyResult $scan_cargoScanResult
+MakeOtherFleetPreventDisengage tOff false
+BroadcastCancelPlayerAction 5000 $sawPlayerTransponderOff
+ShowDefaultVisual
+EndConversation
+$sourceMarket.smugglingScanTimeout = true 30",,,
+tOffRefuse_Sampston,DialogOptionSelected,$option == tOff_refuse_Sampston,"$entity.ignorePlayerCommRequests = true 0
+unset $entity.transponderOffConv
+AdjustRep $faction.id TRANSPONDER_OFF_REFUSE
+AdjustRepActivePerson TRANSPONDER_OFF_REFUSE
+MakeHostileWhileTOff tOff true 7
+ShowDefaultVisual
+EndConversation
+$sourceMarket.smugglingScanTimeout = true 30",,,
+tOffRefuseTransponderIsOn_Sampston,DialogOptionSelected,"$option == tOff_refuse_Sampston
+$player.transponderOn","$entity.ignorePlayerCommRequests = true 0
+unset $entity.transponderOffConv
+AdjustRep $faction.id TRANSPONDER_OFF_REFUSE
+AdjustRepActivePerson TRANSPONDER_OFF_REFUSE
+MakeOtherFleetHostile tOff true 7
+ShowDefaultVisual
+EndConversation
+$sourceMarket.smugglingScanTimeout = true 30",,,
+,,,,,,
+# Sampston cargo scan from smuggling suspicion,,,,,,
+cargoScanInitial_Sampston,BeginFleetEncounter,"!$cargoScan_didAlready
+!$isHostile
+$pursuePlayer_smugglingScan score:50","$cargoScan_didAlready = true 0
+MakeOtherFleetPreventDisengage cargoScan true
+#MakeOtherFleetAggressive cargoScan true
+MakeOtherFleetAggressive tOff false
+unset $ignorePlayerCommRequests
+$cargoScanConv = true 0
+AddText ""You're being hailed by the $faction $otherShipOrFleet."" $faction.baseColor
+OpenComms",,,
+cargoScanFirstComms_Sampston,OpenCommLink,$entity.cargoScanConv score:100,"AddText ""\""Attention: your fleet matches the profile of a suspected smuggler posted by $marketName authorities. You're hereby ordered to submit to a cargo scan.\""""
+SetStoryOption avoid_scan 1 avoidCargoScan ui_char_spent_story_point ""Talked your way out of a cargo scan""",,"0:cargoScan_comply_Sampston:Allow the scan
+1:avoid_scan_Sampston:Talk your way out of it
+2:cargoScan_refuse_Sampston:Refuse and cut the comm link",
+,,,,,,
+cargoScanStart_Sampston,DialogOptionSelected,$option == cargoScan_comply,"AddText ""After a brief wait, the $faction $otherFleetName transmits the scan results.""
+CargoScan
+FireBest CargoScanResult",,,
+cargoScanPods_Sampston,CargoScanResult,$scan_podsFound score:1000,unset $scan_podsFound,"The $faction $personRank pauses and looks off-screen.
+
+""Drifting cargo pods detected nearby, contents illegal. Those will be confiscated, good day.""",0:scan_podsCont_Sampston:Continue,
+cargoScanPodsCont_Sampston,DialogOptionSelected,$option == scan_podsCont,FireBest CargoScanResult,,,
+cargoScanClean_Sampston,CargoScanResult,"!$scan_contrabandFound
+!$scan_suspiciousCargoFound",,"""Cargo scan yields no positives. You are declared clean.""
+
+The comm link is cut before you have a chance to respond.",0:cargoScan_cleanCont_Sampston:Continue,
+#cargoScanSuspicious_Sampston,CargoScanResult,$scan_suspiciousCargoFound,,"While the scan finds no overt contraband, the quantity of cargo found, combined with indirect evidence of your prior black market activities, is enough to raise suspicions.
+
+It is not, however, enough to do anything about. Correspondingly, $personRank $personName looks displeased.
+
+""I'll see you again, you can be sure of it,"" $heOrShe grinds out before cutting the comm link.",0:cargoScan_cleanCont_Sampston:Continue,
+cargoScanBoarding1_Sampston,CargoScanResult,$scan_suspiciousCargoFound,,"The scan finds no overt contraband, but there is enough suspicion of your involvement in black market activities that the patrol commander is not appeased by this.
+
+""$shipOrFleet will recieve boarding party for further inspection.""
+
+You consider it very likely the inspectors will do some small - but just borderline excusable - damage to the combat worthiness of your ships during the course of this ""thorough"" inspection.","0:cargoScan_comply_boarding_Sampston:Comply and prepare for an inspection
+1:cargoScan_refuse_Sampston:Refuse and cut the comm link",
+cargoScanBoarding2_Sampston,DialogOptionSelected,$option == cargoScan_comply_boarding,"CargoScanApplyResult $scan_cargoScanResult
+MakeOtherFleetPreventDisengage cargoScan false
+MakeOtherFleetAggressive cargoScan false
+unset $entity.pursuePlayer_smugglingScan
+unset $entity.cargoScanConv
+$entity.smugglingScanComplete = true 1
+$sourceMarket.smugglingScanTimeout = true 30","As you'd half-expected, several of your ships report minor but painful losses of operational capability. Fortunately, the inspectors seemed to be more interested in causing ""accidental"" damage than looking for actual contraband, so no objectionable cargo was found.",cutCommLinkNoText:Continue,
+cargoScanClean2_Sampston,DialogOptionSelected,$option == cargoScan_cleanCont,"MakeOtherFleetPreventDisengage cargoScan false
+MakeOtherFleetAggressive cargoScan false
+unset $entity.pursuePlayer_smugglingScan
+unset $entity.cargoScanConv
+$entity.smugglingScanComplete = true 1
+$sourceMarket.smugglingScanTimeout = true 30
+ShowDefaultVisual
+EndConversation NO_CONTINUE",,,
+cargoScanContraband_Sampston,CargoScanResult,$scan_contrabandFound score:10,,"""Contraband identified. Per %faction procedure you are ordered to eject contraband or surrender it for incineration.""
+
+$PersonRank continues to look at you.","0:cargoScan_comply_contraband_Sampston:Surrender the contraband and cut the comm link
+1:cargoScan_refuse_Sampston:Refuse and cut the comm link",
+cargoScanContrabandSurrender_Sampston,DialogOptionSelected,$option == cargoScan_comply_contraband,"CargoScanApplyResult $scan_cargoScanResult
+MakeOtherFleetPreventDisengage cargoScan false
+MakeOtherFleetAggressive cargoScan false
+unset $entity.pursuePlayer_smugglingScan
+unset $entity.cargoScanConv
+$entity.smugglingScanComplete = true 1
+$sourceMarket.smugglingScanTimeout = true 30
+ShowDefaultVisual
+EndConversation",,,
+cargoScanRefuse_Sampston,DialogOptionSelected,$option == cargoScan_refuse,"$entity.ignorePlayerCommRequests = true 0
+unset $entity.cargoScanConv
+unset $entity.pursuePlayer_smugglingScan
+$entity.smugglingScanComplete = true 1
+$sourceMarket.smugglingScanTimeout = true 30
+AdjustRep $faction.id CARGO_SCAN_REFUSE
+AdjustRepActivePerson CARGO_SCAN_REFUSE
+ShowDefaultVisual
+EndConversation",,,
+,,,,,,
+,,,,,,
+,,,,,,
+# Sampston smuggling investigation inspector,,,,,,
+ise_greetingTOn_Sampston,PickGreeting,"$ise_investigator
+$player.transponderOn
+!CallEvent $ise_eventRef paidBribe","Highlight ""turning off your transponder""
+ShowPersonVisual
+SetShortcut cutCommLink ""ESCAPE""","After a short wait, your connection request is accepted.
+
+$personName has a neutral look.
+
+""Investigation is being conducted, no further comments.""
+
+You get the feeling that you might get further if you came into port without broadcasting your identity by turning off your transponder.",0:cutCommLink:Cut the comm link,
+ise_greetingTOff_Sampston,PickGreeting,"$ise_investigator
+!$player.transponderOn
+!CallEvent $ise_eventRef paidBribe","ShowPersonVisual
+FireAll PopulateOptionsISE","After a short wait, your connection request is accepted.
+
+$personName looks at you for a moment or two before speaking.
+
+""Investigation is being conducted, no further comments.""",,
+ise_greetingPaid_Sampston,PickGreeting,"$ise_investigator
+CallEvent $ise_eventRef paidBribe",EndConversation,"After a short wait, your connection request is rejected.",,
+ise_offerBribe_Sampston,PopulateOptionsISE,,"SetShortcut cutCommLink ""ESCAPE""",,"0:ise_offerBribe_Sampston:""I understand running a thorough investigation can be expensive...""
+1:cutCommLink:Cut the comm link",
+ise_offerBribeSel_Sampston,DialogOptionSelected,"$option == ise_offerBribe
+$player.credits >= $ise_bribeAmount","SetTextHighlights $ise_bribeAmountDGS
+SetShortcut cutCommLink ""ESCAPE""","""Proposal identified, please hold.
+
+Correct funding amount is $ise_bribeAmountDGS credits - this would be satisfactory.""","0:ise_offerBribeAmount_Sampston:Offer a ""donation"" of $ise_bribeAmountDGS credits
+1:cutCommLink:Cut the comm link",
+ise_offerBribeSelNotEnough_Sampston,DialogOptionSelected,$option == ise_offerBribe,"SetTextHighlights $ise_bribeAmountDGSSetShortcut cutCommLink ""ESCAPE""","""Funding amount modification, submit $ise_bribeAmountDGS credits.""",0:cutCommLink:Cut the comm link,
+ise_offerBribeAmountSel_Sampston,DialogOptionSelected,$option == ise_offerBribeAmount,"AddText ""Lost $ise_bribeAmountDGS credits"" textEnemyColor
+AddText ""\""Your funding is submitted. Have a good day.\""""
+SubCredits $ise_bribeAmount
+CallEvent $ise_eventRef setBribePaid
+SetShortcut cutCommLink ""ESCAPE""",,0:cutCommLink:Cut the comm link,
+,,,,,,
+# Sampston good reputation with other faction investigation inspector,,,,,,
+igr_greetingTOn_Sampston,PickGreeting,"$igr_investigator
+$player.transponderOn
+!CallEvent $igr_eventRef paidBribe","Highlight ""turning off your transponder""
+ShowPersonVisual
+SetShortcut cutCommLink ""ESCAPE""","After a short wait, your connection request is accepted.
+
+$personName has a neutral look.
+
+""Investigation is being conducted, no further comments.""
+
+You get the feeling that you might get further if you came into port without broadcasting your identity by turning off your transponder.",0:cutCommLink:Cut the comm link,
+igr_greetingTOff_Sampston,PickGreeting,"$igr_investigator
+!$player.transponderOn
+!CallEvent $igr_eventRef paidBribe","ShowPersonVisual
+SetShortcut cutCommLink ""ESCAPE""","After a short wait, your connection request is accepted.
+
+$personName looks at you for a moment or two before speaking.
+
+""Investigation is being conducted, no further comments.""","0:igr_offerBribe_Sampston:""I just want to make sure you have the resources for a thorough investigation...""
+1:cutCommLink:Cut the comm link",
+igr_greetingPaid_Sampston,PickGreeting,"$igr_investigator
+CallEvent $igr_eventRef paidBribe",EndConversation,"After a short wait, your connection request is rejected.",,
+igr_greetingReject_Sampston,PickGreeting,"$igr_investigator
+$personFaction.numGRInvestigations >= 2 score:100","ShowPersonVisual
+SetShortcut cutCommLink ""ESCAPE""","After a short wait, your connection request is accepted.
+
+$personName looks at you for a moment or two before speaking.
+
+""Investigation is being conducted, no further comments.""","0:igr_offerBribe_Sampston:""I just want to make sure you have the resources for a thorough investigation...""
+1:cutCommLink:Cut the comm link",
+igr_offerBribeSel_Sampston,DialogOptionSelected,"$option == igr_offerBribe
+$player.credits >= $igr_bribeAmount","SetTextHighlights $igr_bribeAmountDGS
+SetShortcut cutCommLink ""ESCAPE""","""Proposal identified, please hold.
+
+Correct funding amount is $ise_bribeAmountDGS credits - this would be satisfactory.""","0:igr_offerBribeAmount_Sampston:Offer a ""donation"" of $igr_bribeAmountDGS credits
+1:cutCommLink:Cut the comm link",
+igr_offerBribeRejectedSel_Sampston,DialogOptionSelected,"$option == igr_offerBribe
+$personFaction.numGRInvestigations >= 2 score:100","SetShortcut cutCommLink ""ESCAPE""","""Your proposal in noted, but $thePersonFaction is already providing.""",0:cutCommLink:Cut the comm link,
+igr_offerBribeSelNotEnough_Sampston,DialogOptionSelected,$option == igr_offerBribe,"SetTextHighlights $igr_bribeAmountDGS
+SetShortcut cutCommLink ""ESCAPE""","""Funding amount modification, submit $ise_bribeAmountDGS credits.""",0:cutCommLink:Cut the comm link,
+igr_offerBribeAmountSel_Sampston,DialogOptionSelected,$option == igr_offerBribeAmount,"AddText ""Lost $igr_bribeAmountDGS credits"" textEnemyColor
+AddText ""\""Your funding is submitted. Have a good day.\""""
+SubCredits $igr_bribeAmount
+CallEvent $igr_eventRef setBribePaid
+FireBest IGRBribeEnd",,,
+igr_offerBribeAccepedEndWarning_Sampston,IGRBribeEnd,$personFaction.numGRInvestigations == 1,"SetShortcut cutCommLink ""ESCAPE""","$personName hesitates and switches to a more secure channel before speaking.
+
+""Confidential warning.
+
+Should another $personFaction investigate your ties with any other factions you will not have wiggle room.""",0:cutCommLink:Cut the comm link,
+igr_offerBribeAccepedEndNormal_Sampston,IGRBribeEnd,,"SetShortcut cutCommLink ""ESCAPE""",,0:cutCommLink:Cut the comm link,
+,,,,,,
+,,,,,,
 # Sampston Trade panel flavor text,,,,,,
 flavorTextMarketSampston,TradePanelFlavorText,"$global.tradePanelMode == MARKET
 $faction.id == SR","AddText ""The port concourse is neatly lined with several ships of various size, there is small to medium gatherings of crew and passengers moving in organized groups to their designated lots, some on hovering transport shuttles others walk, there is no real standing lines out here. Cargo is also smoothly offloaded and loaded within mere minutes, allowing for fast onloading and offloading. There is a distinct lack of market posters and advertisements aswell, the only posts being informational."" marketFlavorTextColor",,,
@@ -68,6 +399,11 @@ relLevelVengefulSampston,RelationshipLevelDesc,"$faction.rel == VENGEFUL
 $faction.id == SR",FireAll RelLevelMoreDescription,"The Sampstonial database has identified you as a dangerous threat. Your moves are logged and shared with nearby strike forces at all times, with potential rewards for anyone who destroys you.",,
 #relLevelAmericaBaird,RelLevelMoreDescription,"$faction.id == SR
 $global.gaKA_completed",,You are known to have performed work for Provost Baird of the Galatia Academy.,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
+,,,,,,
 ,,,,,,
 # Eterra fleet greeting lines,,,,,,
 greetingEterraFriendly,OpenCommLink,"$faction.id == UTFE

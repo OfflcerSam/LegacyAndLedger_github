@@ -1,118 +1,143 @@
 {
-  "hullName": "AFP-245",
-  "hullId": "sr_arrowhead",
-  "hullSize": "FRIGATE",
-  "spriteName": "graphics/ships/sr_afp245-nl.png",
-  "style": "HIGH_TECH",
-  "height": 101,
-  "width": 46,
-  "center": [23, 50.5],
-  "collisionRadius": 61.5,
-  "shieldCenter": [0, 0],
-  "shieldRadius": 61.5,
-  "viewOffset": 0,
-  "builtInMods": [
-    "automated",
-    "autorepair",
-    "hardenedshieldemitter"
-  ],
-  "builtInWings": [
-    "wasp_wing"
-  ],
-  "weaponSlots": [
-    {
-      "id": "Front",
-      "size": "SMALL",
-      "type": "HYBRID",
-      "mount": "TURRET",
-      "arc": 305,
-      "angle": 0,
-      "locations": [33.5, -0]
-    },
-    {
-      "id": "WS0001",
-      "size": "SMALL",
-      "type": "HYBRID",
-      "mount": "TURRET",
-      "arc": 215,
-      "angle": -90,
-      "locations": [1.5, -12]
-    },
-    {
-      "id": "WS0002",
-      "size": "SMALL",
-      "type": "HYBRID",
-      "mount": "TURRET",
-      "arc": 215,
-      "angle": 90,
-      "locations": [1.5, 12]
-    },
-    {
-      "id": "WS0003",
-      "size": "SMALL",
-      "type": "HYBRID",
-      "mount": "TURRET",
-      "arc": 305,
-      "angle": 180,
-      "locations": [-27.5, -0]
-    },
-    {
-      "id": "Dronebay",
-      "size": "MEDIUM",
-      "type": "LAUNCH_BAY",
-      "mount": "HIDDEN",
-      "arc": 360,
-      "angle": 0,
-      "locations": [11.5, -0]
-    }
-  ],
-  "engineSlots": [
-    {
-      "location": [-51.5, 7.5],
-      "length": 60,
-      "width": 6,
-      "angle": 180,
-      "contrailSize": 6,
-      "style": "HIGH_TECH"
-    },
-    {
-      "location": [-51.5, -7.5],
-      "length": 60,
-      "width": 6,
-      "angle": -180,
-      "contrailSize": 6,
-      "style": "HIGH_TECH"
-    },
-    {
-      "location": [-17, -17],
-      "length": 35,
-      "width": 5,
-      "angle": -168,
-      "contrailSize": 5,
-      "style": "HIGH_TECH"
-    },
-    {
-      "location": [-17, 17],
-      "length": 35,
-      "width": 5,
-      "angle": 168,
-      "contrailSize": 5,
-      "style": "HIGH_TECH"
-    }
-  ],
-  "bounds": [
-    -47, 3.5,
-    -45, 12.5,
-    -13.5, 7,
-    -8.5, 20,
-    24, 17,
-    36, 9.5,
-    45.5, -0,
-    36, -9.5,
-    24, -17,
-    -8.5, -20,
-    -13.5, -7,
-    -45, -12.5,
-    -47, -3.5
-  ]
+    "hullName": "AFP-245",
+    "hullId": "sr_arrowhead",
+    "hullSize": "FRIGATE",
+    "style": "HIGH_TECH",
+    "spriteName": "graphics/ships/sr_afp245-nl.png",
+    "height": 101,
+    "width": 46,
+    "center": [
+        23, 50.5
+    ],
+    "collisionRadius": 55,
+    "coversColor": "",
+    "shieldCenter": [
+        0, 0
+    ],
+    "shieldRadius": 55,
+    "viewOffset": 0,
+    "builtInMods": [
+        "automated",
+        "autorepair",
+        "hardenedshieldemitter"
+    ],
+    "builtInWings": [],
+    "builtInModules": null,
+    "weaponSlots": [
+        {
+            "id": "Front",
+            "size": "SMALL",
+            "type": "HYBRID",
+            "mount": "TURRET",
+            "arc": 305,
+            "angle": 0,
+            "locations": [
+                    33.5,        0
+            ]
+        },
+        {
+            "id": "Right",
+            "size": "SMALL",
+            "type": "HYBRID",
+            "mount": "TURRET",
+            "arc": 215,
+            "angle": -90,
+            "locations": [
+                     1.5,      -12
+            ]
+        },
+        {
+            "id": "Left",
+            "size": "SMALL",
+            "type": "HYBRID",
+            "mount": "TURRET",
+            "arc": 215,
+            "angle": 90,
+            "locations": [
+                     1.5,       12
+            ]
+        },
+        {
+            "id": "Rear",
+            "size": "SMALL",
+            "type": "HYBRID",
+            "mount": "TURRET",
+            "arc": 305,
+            "angle": 180,
+            "locations": [
+                   -27.5,        0
+            ]
+        },
+        {
+            "id": "LBC",
+            "size": "MEDIUM",
+            "type": "LAUNCH_BAY",
+            "mount": "HIDDEN",
+            "arc": 0,
+            "angle": 0,
+            "locations": [
+                      17,        0
+            ]
+        }
+    ],
+    "engineSlots": [
+        {
+            "location": [
+                -45, 8
+            ],
+            "length": 60,
+            "width": 6,
+            "angle": 180,
+            "contrailSize": 6,
+            "style": "HIGH_TECH"
+        },
+        {
+            "location": [
+                -45, -8
+            ],
+            "length": 60,
+            "width": 6,
+            "angle": -180,
+            "contrailSize": 6,
+            "style": "HIGH_TECH"
+        },
+        {
+            "location": [
+                -10, -16.5
+            ],
+            "length": 35,
+            "width": 5,
+            "angle": -168,
+            "contrailSize": 5,
+            "style": "HIGH_TECH"
+        },
+        {
+            "location": [
+                -10, 16.5
+            ],
+            "length": 35,
+            "width": 5,
+            "angle": 168,
+            "contrailSize": 5,
+            "style": "HIGH_TECH"
+        }
+    ],
+    "bounds": [
+             -47,      3.5,
+             -45,     12.5,
+           -13.5,        7,
+            -8.5,       20,
+              24,       17,
+        
+              36,      9.5,
+            45.5,        0,
+              36,     -9.5,
+              24,      -17,
+            -8.5,      -20,
+        
+           -13.5,       -7,
+             -45,    -12.5,
+             -47,     -3.5
+    # 13 points total.
+    ]
 }

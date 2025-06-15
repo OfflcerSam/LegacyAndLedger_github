@@ -18,13 +18,18 @@ Its signature design philosophy—function over comfort—has earned it a reputa
 ,,,,,
 ,,,,,
 #Sampston Ships,,,,,
-sr_arrowhead,SHIP,"Pattern 245, Automated Frigate. Developed by Sampstonial Technologies originally a couple hundred years ago, the design has been iterated upon by advanced design algorithms and AI tweaking turning it from a bulky frigate to a sleeker automated frigate.
+sr_arrowhead,SHIP,"Pattern 245, Automated Frigate. Developed by Sampstonial Technologies originally a couple hundred years ago, the design has been iterated upon by advanced design algorithms and AI tweaking, turning it from a bulky heavy frigate to a sleeker automated one.
 
-The AI designers gutted all human required bits but kept some interfacing ability, allowing for it's compact yet armored design.",,,
+The AI designers gutted all human required bits but kept some interfacing ability, allowing for it's compact yet armored design. Despite it's relatively lacking armament, it is capable of hosting a wing of drones making it a cheap swarmer.",,,
 sr_beetle,SHIP,"Pattern 341, Command Frigate. Developed by Sampstonial Technologies within the last hundred years, the design has been slightly iterated upon by advanced design algorithms and AI tweaking turning it from a heavy and slow command destroyer, to a sleek semi-automated frigate. 
 
 The AI of course kept the human required bits to allow for human interfacing to nearby automated ships and decent self-defense capabilities. Or if you want, just a nice smooth ride, this can also be modified more thanks to it's modularity to be more luxurious.",,,
-,,,,,
+sr_haulerplaceholder,SHIP,"Pattern 150, Automated Freighter. Developed by Sampstonial Industries originally a few hundred years ago, the design has been iterated upon for many generations that it was already decently efficient before it's design tweaks, it has went from a cruiser sized bulk freighter to a sleeker destroyer sized one.
+
+The AI designers gutted all human required bits but kept some interfaction ability, while attempting to keep a decent amount of bulk storage. This design is more suitable for the fast paced nature of shipping within the sector than it's older cruiser sized design.",,,
+sr_placeholder,SHIP,"Pattern 280, Automated Destroyer. Developed by Sampstonial Technologies originally a couple hundred years ago, the design has been iterated upon by advanced design algorithms and AI tweaking, turning it from a once bulky destroyer to a sleeker automated one.
+
+The AI designers gutted all human required bits but kept some interfacing ability, allowing for a decently compact yet armored design. This one even has an in-built spinally mounted coilgun, an upgrade to the ancient and inefficient railguns it used to have.",,,
 ,,,,,
 # WEAPONS,,,,,
 sr_pulsebeamer,WEAPON,Pulse Beam,,,
@@ -37,7 +42,9 @@ sr_pulseblaster,WEAPON,Pulse Cannon,,,
 ,,,,,
 ,,,,,
 # FACTIONS,,,,,
-SR,FACTION,Sampston,,,
+SR,FACTION,"The Sampstonial Remnants are whats left of the Sampstonial Republic's semi-automated precense in this sector after being cut off from their main network. The remnant government and it's defensive network has maintined neutrality and a relatively entrenched position in it's corner of space up until recently.
+Overheard by local and sector-wide communications, old Sampstonial propaganda and security messages. Not many even have memory of these replayed automated messages, as the last they were heard was before the collapse, but with these messages the remnant government has started a slow expanse, heavily entrenching each star they take and ensuring that there is no security holes where they go.
+It is unknown why now the remnant government has started it's new directive to expand and fortify, whisps of strange happenings in the abyss, many rumors of the AI being the real ones in control of the government, there is extreme skepticisim from certain powers in the sector but for most of the regular folk trying to get around Sampston is as good as any pitstop even if the androids seem a bit too human.",,,
 UTFE,FACTION,"The United Trade Federation of Eterra (UTFE) is a recently formalized federal bloc, formed through a mix of military unification and structured diplomacy following years of fragmented trade control. Originally composed of independent trade powers and merchant factions, the member states of the UTFE were brought under a single framework after a brief but decisive conflict, largely insulated from outside interference due to their region’s natural isolation. Rather than dissolving its constituent powers, the UTFE layered a federal structure atop them—prioritizing economic continuity, interoperability, and regulatory cohesion. Trade remains the central pillar, enforced and protected by the Eterra Federated Fleet (EFF), a standardized military force composed of formally commissioned Fleet Assets alongside regulated charter forces.",,,
 ,,,,,
 ,,,,,

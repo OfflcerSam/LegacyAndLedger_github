@@ -1,4 +1,7 @@
 name,id,tier,rarity,base value,range,damage/second,damage/shot,emp,impact,turn rate,OPs,ammo,ammo/sec,reload size,type,energy/shot,energy/second,chargeup,chargedown,burst size,burst delay,min spread,max spread,spread/shot,spread decay/sec,beam speed,proj speed,launch speed,flight time,proj hitpoints,autofireAccBonus,extraArcForAI,hints,tags,groupTag,tech/manufacturer,for weapon tooltip>>,primaryRoleStr,speedStr,trackingStr,turnRateStr,accuracyStr,customPrimary,customPrimaryHL,customAncillary,customAncillaryHL,noDPSInTooltip,number
-Pulse Beamer,sr_pulsebeamer,2,,6500,750,90,,50,5,180,20,,,,ENERGY,,40,0,0.2,,,,,,,3000,,,,,,,PD,"pd7, beam7, SR, stech_bp, SRR",,,,Point Defense,,,,,,,,,,25
+#Sampstonial Remnants,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Pulse Beamer (Fighter),sr_pulsebeamer_mini,,,250,500,20,,10,,180,5,,,,ENERGY,,5,0,0.2,,,,,,,3000,,,,,,,"PD, PD_ALSO, SYSTEM, SHOW_IN_CODEX","pd1, beam1, SR, stech_bp, SRR",,,,Point Defense,,,,,,,,,,25
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Pulse Beamer,sr_pulsebeamer,2,,6500,750,90,,50,5,180,20,,,,ENERGY,,40,0,0.2,,,,,,,3000,,,,,,,"PD, PD_ALSO","pd7, beam7, SR, stech_bp, SRR",,,,Point Defense,,,,,,,,,,25
 Pulse Burster,sr_pulseburster,2,,7000,800,,350,50,5,90,25,,,,ENERGY,250,,0.25,2.75,6,0.02,,,,,,900,,,300,,,,"energy10, SR, stech_bp, SRR",,,,General,,,,,,,,,,25
-Pulse Blaster,sr_pulseblaster,2,,7500,900,,650,50,20,45,25,,,,ENERGY,400,,0.15,1.1,1,0,,,,,,900,,,450,,,"STRIKE, USE_VS_FRIGATES","energy20, LR, stech_bp, SRR",,,,General,,,,,The targeting system is incapable of tracking fighters when on local/automatic control.,,,,,25
+Pulse Blaster,sr_pulseblaster,2,,7500,900,,550,50,20,45,25,,,,ENERGY,400,,0.15,1.1,1,0,,,,,,900,,,450,,,"STRIKE, USE_VS_FRIGATES","energy20, LR, stech_bp, SRR",,,,General,,,,,The targeting system is incapable of tracking fighters when on local/automatic control.,,,,,25

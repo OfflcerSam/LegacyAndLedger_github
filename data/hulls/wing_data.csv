@@ -1,1 +1,5 @@
 id,variant,tags,tier,rarity,fleet pts,op cost,formation,range,attackRunRange,attackPositionOffset,num,role,role desc,refit,base value,,,,,,,,,,,,,number
+#Sampstonial Remnants,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+sr_stinger_zap_wing,sr_stinger_Zapper,"interceptor1, interceptor, SR, auto_fighter, rapid_reform, leader_no_swarm, wingmen_no_swarm",1,,1,2,CLAW,8000,500,,6,INTERCEPTOR,Interceptor Drone,2,500,,,,,,,,,,,,,23
+sr_stinger_beam_wing,sr_stinger_Beamer,"support1, support, SR, drone, stay_in_front_of_ship, rapid_reform, leader_no_swarm, wingmen_no_swarm",1,,1,2,V,2500,500,,6,SUPPORT,Point Defense Drone,2,500,,,,,,,,,,,,,23
+sr_broad_wing,sr_broad_Fighter,"fighter, SR, fighter5, auto_fighter",2,,6,10,V,4000,500,,4,FIGHTER,Fighter Drone,10,6000,,,,,,,,,,,,,
